@@ -1,12 +1,8 @@
 Jomari Candido Portfolio
 
-Open index.html in your browser to view the portfolio locally.
-Keep the assets folder and all CSS/JavaScript files beside index.html.
-An internet connection is needed for external project links and Google Fonts.
+Static site: index.html, style.css, boot.js and main.js. No build step.
+Preview locally with any static server (opening index.html directly will not
+load every feature). Netlify publishes this folder as-is.
 
-To edit: index.html contains the page content; style.css handles the main layout.
-keyboard.css / keyboard.js control the skills board.
-projects.css / projects.js control the project carousel.
-
-This ZIP is a copy of the current portfolio. Local edits do not automatically
-update the published website.
+The contact form uses Netlify Forms. Enable form detection in the Netlify
+site settings (Forms) so submissions are collected.
