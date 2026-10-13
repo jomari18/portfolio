@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Jomari M. Candido — Computer Science graduate and full-stack web developer. Explore ZolTrack, ZolNutrition, MediSched, C’est Délicieux and Registrix.">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#0e1013">
 <meta property="og:title" content="Jomari M. Candido · Developer Portfolio">
 <meta property="og:description" content="Five live web applications built with React, TypeScript, JavaScript and Supabase.">
 <meta property="og:image" content="assets/portrait.webp">
 <title>Jomari Candido · Developer Portfolio</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0a'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial Black,Arial' font-size='26' font-weight='900' fill='%23ededed'%3EJC%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1013'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial Black,Arial' font-size='26' font-weight='900' fill='%23ececec'%3EJC%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;500;600&family=Unbounded:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="style.css">
 <script src="boot.js"></script>
 <script src="main.js" defer></script>
@@ -29,243 +29,355 @@
   <p class="intro-word">Welcome</p>
 </div>
 
-<div class="backdrop" aria-hidden="true"></div>
+<div class="backdrop" aria-hidden="true">
+  <svg class="waves" viewBox="0 0 1440 900" preserveAspectRatio="none">
+    <path d="M-20 210C240 150 420 290 720 230S1200 120 1460 190"/>
+    <path d="M-20 470C300 400 520 560 820 480S1240 380 1460 450"/>
+    <path d="M-20 740C260 680 520 820 840 740S1220 650 1460 720"/>
+  </svg>
+</div>
 
 <header class="nav-wrap">
   <nav class="nav" aria-label="Main navigation">
-    <a class="brand" href="#home" aria-label="Jomari Candido, home">jomari<span>.dev</span></a>
-    <div class="nav-links">
-      <a href="#home" data-nav="home">Home</a>
+    <a class="brand" href="#home" aria-label="Jomari Candido, home"><span class="brand-mark">JC</span><span class="brand-name">Jomari</span></a>
+    <div class="nav-links" id="nav-links">
+      <a href="#work" data-nav="work">Work</a>
+      <a href="#skills" data-nav="skills">What I Can Do</a>
       <a href="#about" data-nav="about">About</a>
-      <a href="#portfolio" data-nav="portfolio">Portfolio</a>
+      <a href="#credentials" data-nav="credentials">Credentials</a>
       <a href="#contact" data-nav="contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to light theme">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <button class="hire-btn" type="button" data-open-message>Hire Me</button>
+      <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </nav>
 </header>
 
 <main id="main">
 
-<section id="home" class="hero wrap">
-  <div class="hero-copy">
+<section id="home" class="hero">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track"><span>JOMARI CANDIDO · FULL-STACK DEVELOPER · </span><span>JOMARI CANDIDO · FULL-STACK DEVELOPER · </span></div>
+  </div>
+  <img class="hero-portrait" src="assets/portrait-cutout.webp" width="900" height="900" alt="Portrait of Jomari Candido in formal attire" fetchpriority="high">
+  <div class="hero-text">
     <p class="eyebrow status"><span class="dot" aria-hidden="true"></span>Available for work</p>
-    <h1 class="display reveal"><span>Full-Stack</span><span class="dim">Developer</span></h1>
+    <h1>Full-Stack<br><span class="dim">Developer</span></h1>
     <p class="typing mono" aria-label="Computer Science graduate"><span id="typed">Computer Science graduate</span><span class="caret" aria-hidden="true">_</span></p>
-    <p class="lead reveal">I turn everyday workflows into practical applications — from clinic appointments and student records to maintenance requests and meal tracking.</p>
-    <ul class="chips reveal" aria-label="Core technologies">
-      <li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li>
-    </ul>
-    <p class="mono hint reveal">↓ explore my work below<br>↗ open to full-time &amp; freelance opportunities</p>
   </div>
+  <div class="hero-side">
+    <ul class="chips" aria-label="Core technologies"><li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li></ul>
+    <a class="btn primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+  </div>
+  <a class="scroll-down mono" href="#work">Scroll down</a>
+</section>
 
-  <div class="lanyard-zone">
-    <div class="lanyard" id="lanyard">
-      <div class="strap" aria-hidden="true"><span>JOMARI · DEV · JOMARI · DEV · JOMARI · DEV · JOMARI · DEV</span></div>
-      <div class="clip" aria-hidden="true"></div>
-      <figure class="badge" id="badge">
-        <div class="badge-hole" aria-hidden="true"></div>
-        <img src="assets/portrait.webp" width="900" height="900" alt="Portrait of Jomari Candido in formal attire" fetchpriority="high" draggable="false">
-        <figcaption><strong>Jomari M. Candido</strong><span>BS Computer Science</span></figcaption>
-      </figure>
+<section id="work" class="section wrap">
+  <div class="head-row">
+    <div>
+      <p class="eyebrow">Selected work</p>
+      <h2 class="type-title" data-type>Work Gallery</h2>
+      <p class="muted">A collection of systems and web applications I’ve built and deployed.</p>
     </div>
-    <p class="drag-hint mono" aria-hidden="true">drag the card</p>
+    <a class="btn" href="#all-projects">View all projects <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
   </div>
 
-  <a class="scroll-cue mono" href="#about">Scroll <span aria-hidden="true">↓</span></a>
+  <div class="coverflow" id="coverflow" role="region" aria-roledescription="carousel" aria-label="Featured projects">
+    <div class="cf-stage" id="cf-stage" role="group" aria-label="Choose a project">
+      <button type="button" class="cf-card" data-index="0" aria-label="Show ZolTrack"><img src="assets/projects/zoltrack.webp" width="1600" height="800" alt=""></button>
+      <button type="button" class="cf-card" data-index="1" aria-label="Show ZolNutrition"><img src="assets/projects/zolnutrition.webp" width="1600" height="800" alt=""></button>
+      <button type="button" class="cf-card" data-index="2" aria-label="Show MediSched"><img src="assets/projects/medisched.webp" width="1600" height="800" alt=""></button>
+      <button type="button" class="cf-card" data-index="3" aria-label="Show C’est Délicieux"><img src="assets/projects/cest-delicieux.webp" width="1600" height="800" alt=""></button>
+      <button type="button" class="cf-card" data-index="4" aria-label="Show Registrix"><img src="assets/projects/registrix.webp" width="1600" height="800" alt=""></button>
+    </div>
+    <div class="cf-info" aria-live="polite">
+      <h3 id="cf-title">ZolTrack</h3>
+      <p id="cf-summary">Maintenance requests, borrowing and inventory with role-based workflows for users and administrators.</p>
+      <div class="cf-actions">
+        <button class="text-btn" type="button" id="cf-details">View project <span aria-hidden="true">→</span></button>
+        <a class="text-btn" id="cf-live" href="https://zoltrack.netlify.app" target="_blank" rel="noopener">Live demo <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="cf-nav"><button type="button" class="icon-btn" id="cf-prev" aria-label="Previous project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><span class="mono" id="cf-count">01 / 05</span><button type="button" class="icon-btn" id="cf-next" aria-label="Next project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+    </div>
+  </div>
+
+  <div class="project-list" id="all-projects">
+    <p class="eyebrow">All projects</p>
+
+    <article class="project-row" data-project="zoltrack">
+      <span class="row-num mono">01</span>
+      <div class="row-body">
+        <h3>ZolTrack</h3>
+        <p class="row-summary">Maintenance requests, borrowing and inventory with role-based workflows for users and administrators.</p>
+        <p class="row-meta mono">Web application · Maintenance &amp; asset management</p>
+        <ul class="row-tech" aria-label="Technologies"><li><span class="icon" data-icon="javascript"></span>JavaScript</li><li><span class="icon" data-icon="supabase"></span>Supabase</li><li><span class="icon" data-icon="postgresql"></span>PostgreSQL</li><li><span class="icon" data-icon="netlify"></span>Netlify</li></ul>
+      </div>
+      <div class="row-actions"><button class="pill-btn" type="button" data-details>Details</button><a class="icon-btn" href="https://zoltrack.netlify.app" target="_blank" rel="noopener" aria-label="Open ZolTrack live demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+      <template>
+        <img src="assets/projects/zoltrack.webp" alt="ZolTrack maintenance and asset management landing page">
+        <p class="detail-kicker">Web application · Maintenance &amp; asset management</p>
+        <p>I was the sole developer of FixIt Clare, submitted as a group thesis project at St. Clare College. I later refined it as ZolTrack, a web-based system that centralizes maintenance requests, inventory, asset borrowing, account approval, notifications, audit history and operational reporting.</p>
+        <ul data-features><li>Role-based workflows for User, Admin and Super Admin accounts</li><li>Maintenance request tracking and inventory &amp; borrowing workflows</li><li>Account approvals with email OTP and code-based password recovery</li><li>Private verification-document storage with controlled access</li></ul>
+        <ul data-tech><li>JavaScript</li><li>Supabase</li><li>PostgreSQL</li><li>Netlify</li></ul>
+        <p data-links><a href="https://zoltrack.netlify.app">Live demo</a><a href="https://github.com/jomari18/zoltrack">Source code</a></p>
+      </template>
+    </article>
+
+    <article class="project-row" data-project="zolnutrition">
+      <span class="row-num mono">02</span>
+      <div class="row-body">
+        <h3>ZolNutrition</h3>
+        <p class="row-summary">A nutrition tracker for logging meals, keeping track of macros and reviewing weekly progress.</p>
+        <p class="row-meta mono">Web &amp; Android application · Meal and nutrition tracker</p>
+        <ul class="row-tech" aria-label="Technologies"><li><span class="icon" data-icon="react"></span>React</li><li><span class="icon" data-icon="vite"></span>Vite</li><li><span class="icon" data-icon="supabase"></span>Supabase</li><li><span class="icon" data-icon="capacitor"></span>Capacitor</li></ul>
+      </div>
+      <div class="row-actions"><button class="pill-btn" type="button" data-details>Details</button><a class="icon-btn" href="https://zolnutrition.netlify.app" target="_blank" rel="noopener" aria-label="Open ZolNutrition live demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+      <template>
+        <img src="assets/projects/zolnutrition.webp" alt="ZolNutrition meal tracker sign-in page">
+        <p class="detail-kicker">Web &amp; Android application · Meal and nutrition tracker</p>
+        <p>Built around a routine I know firsthand. Developed through iterative design, implementation and testing on desktop and mobile, with OTP signup and password recovery, food search, reusable meals and Android packaging with Capacitor.</p>
+        <ul data-features><li>Meal logging and saved meals</li><li>Training and rest-day calorie and macro targets</li><li>Seven-day review with weight trends</li><li>Desktop sidebar and mobile bottom navigation</li></ul>
+        <ul data-tech><li>React</li><li>Vite</li><li>Supabase</li><li>Capacitor</li></ul>
+        <p data-links><a href="https://zolnutrition.netlify.app">Live demo</a><a href="https://github.com/jomari18/zolnutrition">Source code</a></p>
+      </template>
+    </article>
+
+    <article class="project-row" data-project="medisched">
+      <span class="row-num mono">03</span>
+      <div class="row-body">
+        <h3>MediSched</h3>
+        <p class="row-summary">Clinic appointment scheduling with live slot availability, QR check-in for staff and clinic analytics.</p>
+        <p class="row-meta mono">Web application · Clinic appointment scheduling</p>
+        <ul class="row-tech" aria-label="Technologies"><li><span class="icon" data-icon="javascript"></span>JavaScript</li><li><span class="icon" data-icon="supabase"></span>Supabase</li><li><span class="icon" data-icon="postgresql"></span>PostgreSQL</li><li><span class="icon" data-icon="netlify"></span>Netlify</li></ul>
+      </div>
+      <div class="row-actions"><button class="pill-btn" type="button" data-details>Details</button><a class="icon-btn" href="https://mymedisched.netlify.app" target="_blank" rel="noopener" aria-label="Open MediSched live demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+      <template>
+        <img src="assets/projects/medisched.webp" alt="MediSched clinic appointment landing page with a calendar and stethoscope">
+        <p class="detail-kicker">Web application · Clinic appointment scheduling</p>
+        <p>I was the sole developer of the original academic group project, built on Firebase. I later rebuilt it on Supabase with transactional booking, database-enforced overlap prevention and clinic hours, a private staff workspace, expiring QR passes and appointment confirmation emails.</p>
+        <ul data-features><li>Available slots, booking, history and cancellation</li><li>Expiring QR passes with staff camera or manual check-in</li><li>Staff schedule, consultation progress and clinic analytics</li><li>Email OTP sign-up and password recovery</li></ul>
+        <ul data-tech><li>JavaScript</li><li>Supabase</li><li>PostgreSQL</li><li>Edge Functions</li><li>Netlify</li></ul>
+        <p data-links><a href="https://mymedisched.netlify.app">Live demo</a><a href="https://github.com/jomari18/MediSched">Source code</a></p>
+      </template>
+    </article>
+
+    <article class="project-row" data-project="cest-delicieux">
+      <span class="row-num mono">04</span>
+      <div class="row-body">
+        <h3>C’est Délicieux</h3>
+        <p class="row-summary">A restaurant ordering app with a searchable menu, persistent cart, pickup or delivery and order tracking.</p>
+        <p class="row-meta mono">Web &amp; Android application · Restaurant ordering</p>
+        <ul class="row-tech" aria-label="Technologies"><li><span class="icon" data-icon="react"></span>React</li><li><span class="icon" data-icon="typescript"></span>TypeScript</li><li><span class="icon" data-icon="supabase"></span>Supabase</li><li><span class="icon" data-icon="capacitor"></span>Capacitor</li></ul>
+      </div>
+      <div class="row-actions"><button class="pill-btn" type="button" data-details>Details</button><a class="icon-btn" href="https://cestdelicieux.netlify.app" target="_blank" rel="noopener" aria-label="Open C’est Délicieux live demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+      <template>
+        <img src="assets/projects/cest-delicieux.webp" alt="C’est Délicieux supper club home page with a candlelit dining room">
+        <p class="detail-kicker">Web &amp; Android application · Restaurant ordering</p>
+        <p>I was the sole developer of the original academic group project, a static food website. I later rebuilt it as a full ordering app with accounts, transactional order placement, delivery fees by distance, a staff order dashboard and an Android build.</p>
+        <ul data-features><li>Menu search and a persistent cart</li><li>Pickup or delivery with distance-based fees</li><li>Order history, cancellation and staff order progress</li><li>Email verification and code-based password recovery</li></ul>
+        <ul data-tech><li>React</li><li>TypeScript</li><li>Supabase</li><li>Capacitor</li></ul>
+        <p data-links><a href="https://cestdelicieux.netlify.app">Live demo</a><a href="https://github.com/jomari18/CestDelicieux">Source code</a></p>
+      </template>
+    </article>
+
+    <article class="project-row" data-project="registrix">
+      <span class="row-num mono">05</span>
+      <div class="row-body">
+        <h3>Registrix</h3>
+        <p class="row-summary">Student records and grading with class rosters, automatic grade calculation and staff approval workflows.</p>
+        <p class="row-meta mono">Web application · Student records &amp; grading</p>
+        <ul class="row-tech" aria-label="Technologies"><li><span class="icon" data-icon="react"></span>React</li><li><span class="icon" data-icon="typescript"></span>TypeScript</li><li><span class="icon" data-icon="supabase"></span>Supabase</li><li><span class="icon" data-icon="postgresql"></span>PostgreSQL</li></ul>
+      </div>
+      <div class="row-actions"><button class="pill-btn" type="button" data-details>Details</button><a class="icon-btn" href="https://registrix.netlify.app" target="_blank" rel="noopener" aria-label="Open Registrix live demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+      <template>
+        <img src="assets/projects/registrix.webp" alt="Registrix student records sign-in page">
+        <p class="detail-kicker">Web application · Student records &amp; grading</p>
+        <p>I was the sole developer of the original academic group project, a C# Windows Forms app backed by Microsoft Access. I rebuilt it for the web as Registrix, with role-based access for administrators, registrars and teachers.</p>
+        <ul data-features><li>One student identity across multiple class enrollments</li><li>Automatic General Average and Incomplete handling</li><li>Administrator approval and teacher class assignments</li><li>Archive and restore with stale-edit protection</li></ul>
+        <ul data-tech><li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li></ul>
+        <p data-links><a href="https://registrix.netlify.app">Live demo</a><a href="https://github.com/jomari18/Registrix">Source code</a></p>
+      </template>
+    </article>
+  </div>
+</section>
+
+<section id="skills" class="section wrap">
+  <div class="skills">
+    <div class="skills-intro">
+      <p class="eyebrow">My capabilities</p>
+      <h2 class="type-title" data-type>What I Can Do</h2>
+      <p class="muted">I combine web development, data and problem-solving to build reliable systems—from the interface down to the database.</p>
+      <ul class="tool-grid" aria-label="Technologies I use">
+        <li style="--brand:#61dafb" title="React"><span class="icon" data-icon="react"></span><span class="visually-hidden">React</span></li>
+        <li style="--brand:#3178c6" title="TypeScript"><span class="icon" data-icon="typescript"></span><span class="visually-hidden">TypeScript</span></li>
+        <li style="--brand:#f7df1e" title="JavaScript"><span class="icon" data-icon="javascript"></span><span class="visually-hidden">JavaScript</span></li>
+        <li style="--brand:#e34f26" title="HTML"><span class="icon" data-icon="html5"></span><span class="visually-hidden">HTML</span></li>
+        <li style="--brand:#663399" title="CSS"><span class="icon" data-icon="css"></span><span class="visually-hidden">CSS</span></li>
+        <li style="--brand:#9135ff" title="Vite"><span class="icon" data-icon="vite"></span><span class="visually-hidden">Vite</span></li>
+        <li style="--brand:#3fcf8e" title="Supabase"><span class="icon" data-icon="supabase"></span><span class="visually-hidden">Supabase</span></li>
+        <li style="--brand:#4169e1" title="PostgreSQL"><span class="icon" data-icon="postgresql"></span><span class="visually-hidden">PostgreSQL</span></li>
+        <li style="--brand:#ffca28" title="Firebase"><span class="icon" data-icon="firebase"></span><span class="visually-hidden">Firebase</span></li>
+        <li style="--brand:#119eff" title="Capacitor"><span class="icon" data-icon="capacitor"></span><span class="visually-hidden">Capacitor</span></li>
+        <li style="--brand:#9b4f96" title="C#"><span class="glyph" aria-hidden="true">C#</span><span class="visually-hidden">C#</span></li>
+        <li style="--brand:#512bd4" title=".NET / Windows Forms"><span class="icon" data-icon="dotnet"></span><span class="visually-hidden">.NET / Windows Forms</span></li>
+        <li style="--brand:#ed8b00" title="Java"><span class="icon" data-icon="openjdk"></span><span class="visually-hidden">Java</span></li>
+        <li style="--brand:#a4373a" title="Microsoft Access"><span class="glyph" aria-hidden="true">A</span><span class="visually-hidden">Microsoft Access</span></li>
+        <li style="--brand:#f05032" title="Git"><span class="icon" data-icon="git"></span><span class="visually-hidden">Git</span></li>
+        <li style="--brand:#8a8a8a" title="GitHub"><span class="icon" data-icon="github"></span><span class="visually-hidden">GitHub</span></li>
+        <li style="--brand:#00c7b7" title="Netlify"><span class="icon" data-icon="netlify"></span><span class="visually-hidden">Netlify</span></li>
+      </ul>
+      <p class="credit muted small">Icons: Simple Icons 15.0.0 (CC0). Names and marks belong to their owners.</p>
+    </div>
+    <div class="cap-cards">
+      <article class="cap-card reveal">
+        <div class="cap-top"><span class="cap-num">01</span><span class="cap-label mono">Full-stack web<br>development</span></div>
+        <div class="cap-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M9 13l-2 2 2 2M15 13l2 2-2 2"/></svg></div>
+        <p>Building complete web applications—responsive React and JavaScript interfaces backed by Supabase, PostgreSQL row-level security and transactional database functions.</p>
+        <ul class="tags"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Supabase</li><li>PostgreSQL</li><li>Auth &amp; email OTP</li><li>Responsive UI</li><li>Netlify deploys</li></ul>
+      </article>
+      <article class="cap-card reveal">
+        <div class="cap-top"><span class="cap-num">02</span><span class="cap-label mono">IT support &amp;<br>systems</span></div>
+        <div class="cap-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+        <p>Hands-on IT support from my Department of Agriculture internship—telephone and internet connectivity, troubleshooting, coding and server-related assistance.</p>
+        <ul class="tags"><li>Network connectivity</li><li>Troubleshooting</li><li>Server assistance</li><li>Desktop apps (C#)</li><li>Testing &amp; QA</li><li>Git &amp; GitHub</li></ul>
+      </article>
+    </div>
+  </div>
 </section>
 
 <section id="about" class="section wrap">
   <div class="about">
     <div class="about-copy">
       <p class="eyebrow">About me</p>
-      <h2 class="display about-name reveal"><span>Jomari M.</span><span>Candido</span></h2>
-      <p class="reveal">I’m a Bachelor of Science in Computer Science graduate from St. Clare College of Caloocan City. My experience spans browser-based applications and C# desktop projects, and I enjoy the details that make a system useful: clear interfaces, connected data and reliable everyday workflows.</p>
-      <p class="reveal">My internship at the Department of Agriculture gave me hands-on exposure to IT support, network connectivity, coding and server-related work.</p>
-      <blockquote class="quote reveal">“Turning everyday workflows into clean, reliable and useful applications.”</blockquote>
-      <div class="actions reveal">
-        <a class="btn primary" href="assets/Jomari-Candido-Resume.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9 14l3 3 3-3"/></svg>Download CV</a>
-        <a class="btn" href="#portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>View Projects</a>
+      <h2 class="type-title rotating"><span class="visually-hidden">Problem Solver, Web Developer, Lifelong Learner</span><span aria-hidden="true" id="trait">Problem Solver</span><span class="title-caret" aria-hidden="true"></span></h2>
+      <div class="profile">
+        <img class="profile-avatar" src="assets/portrait.webp" width="900" height="900" alt="" loading="lazy">
+        <div>
+          <p class="profile-name">JOMARI M. CANDIDO <svg class="verified" viewBox="0 0 24 24" aria-label="Verified"><path d="M12 2l2.4 2.1 3.2-.3.9 3.1 2.8 1.6-1.1 3 1.1 3-2.8 1.6-.9 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.9-3.1-2.8-1.6 1.1-3-1.1-3 2.8-1.6.9-3.1 3.2.3z"/><path class="tick" d="m8.5 12 2.3 2.3 4.7-4.6"/></svg></p>
+          <dl class="profile-stats">
+            <div><dt>Projects</dt><dd data-count="5">5</dd></div>
+            <div><dt>Certificates</dt><dd data-count="2">2</dd></div>
+            <div><dt>BSCS graduated</dt><dd>2026</dd></div>
+          </dl>
+        </div>
       </div>
+      <p class="bio">I’m a Computer Science graduate from St. Clare College of Caloocan City. I enjoy turning everyday workflows into practical applications—clinic scheduling, student records, maintenance requests and meal tracking. My experience spans browser-based applications and C# desktop projects, and my internship at the Department of Agriculture gave me hands-on IT support, networking and server experience.</p>
+      <p class="bio">Want to know more about my experience? <a class="strong-link" href="assets/Jomari-Candido-Resume.pdf" download>Download my résumé</a>.</p>
+      <p class="eyebrow currently-label">Currently</p>
+      <ul class="currently">
+        <li><span class="cur-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></span><span><strong>Building</strong><small>Full-stack web apps</small></span></li>
+        <li><span class="cur-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-9V3"/></svg></span><span><strong>Exploring</strong><small>Testing &amp; database design</small></span></li>
+        <li><span class="cur-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM20 19v2H6"/></svg></span><span><strong>Learning</strong><small>TypeScript &amp; mobile builds</small></span></li>
+      </ul>
     </div>
-    <div class="avatar reveal"><img src="assets/portrait.webp" width="900" height="900" alt="" loading="lazy"></div>
-  </div>
 
-  <div class="stats">
-    <a class="stat reveal" href="#portfolio" data-open-tab="projects"><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></span><strong data-count="5">5</strong><span class="stat-label">Live projects</span><span class="stat-arrow" aria-hidden="true">↗</span></a>
-    <a class="stat reveal" href="#portfolio" data-open-tab="certificates"><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg></span><strong data-count="2">2</strong><span class="stat-label">Certificates</span><span class="stat-arrow" aria-hidden="true">↗</span></a>
-    <a class="stat reveal" href="#portfolio" data-open-tab="stack"><span class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><strong data-count="17">17</strong><span class="stat-label">Technologies</span><span class="stat-arrow" aria-hidden="true">↗</span></a>
-  </div>
-
-  <div class="journey">
-    <article class="card reveal"><p class="eyebrow">Education · 2022 — 2026</p><h3>BS Computer Science</h3><p>St. Clare College of Caloocan City</p><span class="muted small">Graduated 2026</span></article>
-    <article class="card reveal"><p class="eyebrow">Internship · Jul — Nov 2025</p><h3>Department of Agriculture</h3><p>Information and Communications Technology Service</p><span class="muted small">300-hour OJT · connectivity support, coding and server-related assistance</span></article>
+    <div class="lanyard-zone" id="lanyard-zone">
+      <div class="lanyard" id="lanyard">
+        <div class="strap" aria-hidden="true"><span>JOMARI · DEV · JOMARI · DEV · JOMARI · DEV · JOMARI · DEV</span></div>
+        <div class="clip" aria-hidden="true"></div>
+        <figure class="badge" id="badge">
+          <div class="badge-hole" aria-hidden="true"></div>
+          <img src="assets/portrait.webp" width="900" height="900" alt="ID card photo of Jomari Candido" draggable="false" loading="lazy">
+          <figcaption><strong>Jomari M. Candido</strong><span>BS Computer Science</span></figcaption>
+        </figure>
+      </div>
+      <p class="drag-hint mono" aria-hidden="true">drag the card</p>
+    </div>
   </div>
 </section>
 
-<section id="portfolio" class="section wrap">
-  <div class="section-head reveal">
-    <h2 class="display-sm">Portfolio Showcase</h2>
-    <p>Explore my journey through projects, certifications and technical expertise.</p>
-  </div>
+<section id="credentials" class="section wrap">
+  <p class="eyebrow">Recognition &amp; training</p>
+  <h2 class="type-title" data-type>Training &amp; Certificates</h2>
+  <p class="muted lead-sm">The experience and learning behind my work.</p>
 
-  <div class="tabs reveal" role="tablist" aria-label="Portfolio sections">
-    <span class="tab-glider" aria-hidden="true"></span>
-    <button role="tab" id="tab-projects" aria-controls="panel-projects" aria-selected="true">Projects</button>
-    <button role="tab" id="tab-certificates" aria-controls="panel-certificates" aria-selected="false" tabindex="-1">Certificates</button>
-    <button role="tab" id="tab-stack" aria-controls="panel-stack" aria-selected="false" tabindex="-1">Tech Stack</button>
-  </div>
-
-  <div class="panel" id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
-    <div class="project-grid">
-
-      <article class="project-card" data-project="zoltrack">
-        <div class="shot"><img src="assets/projects/zoltrack.webp" width="1600" height="800" alt="ZolTrack maintenance and asset management landing page" loading="lazy"></div>
-        <h3>ZolTrack</h3>
-        <p>Maintenance requests, borrowing and inventory with role-based workflows for users and administrators.</p>
-        <div class="card-foot"><a class="link" href="https://zoltrack.netlify.app" target="_blank" rel="noopener">Live demo ↗</a><button class="pill-btn" type="button" data-details>Details <span aria-hidden="true">→</span></button></div>
-        <template>
-          <p class="detail-kicker">Web application · Maintenance &amp; asset management</p>
-          <p>I was the sole developer of FixIt Clare, submitted as a group thesis project at St. Clare College. I later refined it as ZolTrack, a web-based system that centralizes maintenance requests, inventory, asset borrowing, account approval, notifications, audit history and operational reporting.</p>
-          <ul data-features><li>Role-based workflows for User, Admin and Super Admin accounts</li><li>Maintenance request tracking and inventory &amp; borrowing workflows</li><li>Account approvals with email OTP and code-based password recovery</li><li>Private verification-document storage with controlled access</li></ul>
-          <ul data-tech><li>JavaScript</li><li>Supabase</li><li>PostgreSQL</li><li>Netlify</li></ul>
-          <p data-links><a href="https://zoltrack.netlify.app">Live demo</a><a href="https://github.com/jomari18/zoltrack">Source code</a></p>
-        </template>
-      </article>
-
-      <article class="project-card" data-project="zolnutrition">
-        <div class="shot"><img src="assets/projects/zolnutrition.webp" width="1600" height="800" alt="ZolNutrition meal tracker sign-in page" loading="lazy"></div>
-        <h3>ZolNutrition</h3>
-        <p>A nutrition tracker for logging meals, keeping track of macros and reviewing weekly progress.</p>
-        <div class="card-foot"><a class="link" href="https://zolnutrition.netlify.app" target="_blank" rel="noopener">Live demo ↗</a><button class="pill-btn" type="button" data-details>Details <span aria-hidden="true">→</span></button></div>
-        <template>
-          <p class="detail-kicker">Web &amp; Android application · Meal and nutrition tracker</p>
-          <p>Built around a routine I know firsthand. Developed through iterative design, implementation and testing on desktop and mobile, with OTP signup and password recovery, food search, reusable meals and Android packaging with Capacitor.</p>
-          <ul data-features><li>Meal logging and saved meals</li><li>Training and rest-day calorie and macro targets</li><li>Seven-day review with weight trends</li><li>Desktop sidebar and mobile bottom navigation</li></ul>
-          <ul data-tech><li>React</li><li>Vite</li><li>Supabase</li><li>Capacitor</li></ul>
-          <p data-links><a href="https://zolnutrition.netlify.app">Live demo</a><a href="https://github.com/jomari18/zolnutrition">Source code</a></p>
-        </template>
-      </article>
-
-      <article class="project-card" data-project="medisched">
-        <div class="shot"><img src="assets/projects/medisched.webp" width="1600" height="800" alt="MediSched clinic appointment landing page with a calendar and stethoscope" loading="lazy"></div>
-        <h3>MediSched</h3>
-        <p>Clinic appointment scheduling with live slot availability, QR check-in for staff and clinic analytics.</p>
-        <div class="card-foot"><a class="link" href="https://mymedisched.netlify.app" target="_blank" rel="noopener">Live demo ↗</a><button class="pill-btn" type="button" data-details>Details <span aria-hidden="true">→</span></button></div>
-        <template>
-          <p class="detail-kicker">Web application · Clinic appointment scheduling</p>
-          <p>I was the sole developer of the original academic group project, built on Firebase. I later rebuilt it on Supabase with transactional booking, database-enforced overlap prevention and clinic hours, a private staff workspace, expiring QR passes and appointment confirmation emails.</p>
-          <ul data-features><li>Available slots, booking, history and cancellation</li><li>Expiring QR passes with staff camera or manual check-in</li><li>Staff schedule, consultation progress and clinic analytics</li><li>Email OTP sign-up and password recovery</li></ul>
-          <ul data-tech><li>JavaScript</li><li>Supabase</li><li>PostgreSQL</li><li>Edge Functions</li><li>Netlify</li></ul>
-          <p data-links><a href="https://mymedisched.netlify.app">Live demo</a><a href="https://github.com/jomari18/MediSched">Source code</a></p>
-        </template>
-      </article>
-
-      <article class="project-card" data-project="cest-delicieux">
-        <div class="shot"><img src="assets/projects/cest-delicieux.webp" width="1600" height="800" alt="C’est Délicieux supper club home page with a candlelit dining room" loading="lazy"></div>
-        <h3>C’est Délicieux</h3>
-        <p>A restaurant ordering app with a searchable menu, persistent cart, pickup or delivery and order tracking.</p>
-        <div class="card-foot"><a class="link" href="https://cestdelicieux.netlify.app" target="_blank" rel="noopener">Live demo ↗</a><button class="pill-btn" type="button" data-details>Details <span aria-hidden="true">→</span></button></div>
-        <template>
-          <p class="detail-kicker">Web &amp; Android application · Restaurant ordering</p>
-          <p>I was the sole developer of the original academic group project, a static food website. I later rebuilt it as a full ordering app with accounts, transactional order placement, delivery fees by distance, a staff order dashboard and an Android build.</p>
-          <ul data-features><li>Menu search and a persistent cart</li><li>Pickup or delivery with distance-based fees</li><li>Order history, cancellation and staff order progress</li><li>Email verification and code-based password recovery</li></ul>
-          <ul data-tech><li>React</li><li>TypeScript</li><li>Supabase</li><li>Capacitor</li></ul>
-          <p data-links><a href="https://cestdelicieux.netlify.app">Live demo</a><a href="https://github.com/jomari18/CestDelicieux">Source code</a></p>
-        </template>
-      </article>
-
-      <article class="project-card" data-project="registrix">
-        <div class="shot"><img src="assets/projects/registrix.webp" width="1600" height="800" alt="Registrix student records sign-in page" loading="lazy"></div>
-        <h3>Registrix</h3>
-        <p>Student records and grading with class rosters, automatic grade calculation and staff approval workflows.</p>
-        <div class="card-foot"><a class="link" href="https://registrix.netlify.app" target="_blank" rel="noopener">Live demo ↗</a><button class="pill-btn" type="button" data-details>Details <span aria-hidden="true">→</span></button></div>
-        <template>
-          <p class="detail-kicker">Web application · Student records &amp; grading</p>
-          <p>I was the sole developer of the original academic group project, a C# Windows Forms app backed by Microsoft Access. I rebuilt it for the web as Registrix, with role-based access for administrators, registrars and teachers.</p>
-          <ul data-features><li>One student identity across multiple class enrollments</li><li>Automatic General Average and Incomplete handling</li><li>Administrator approval and teacher class assignments</li><li>Archive and restore with stale-edit protection</li></ul>
-          <ul data-tech><li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li></ul>
-          <p data-links><a href="https://registrix.netlify.app">Live demo</a><a href="https://github.com/jomari18/Registrix">Source code</a></p>
-        </template>
-      </article>
-
-    </div>
-  </div>
-
-  <div class="panel" id="panel-certificates" role="tabpanel" aria-labelledby="tab-certificates" hidden>
-    <div class="cert-grid">
-      <button class="cert-card" type="button" data-lightbox="assets/freecodecamp-certificate.webp" data-caption="freeCodeCamp · JavaScript Algorithms & Data Structures">
-        <img src="assets/freecodecamp-certificate.webp" width="1000" height="681" alt="freeCodeCamp JavaScript Algorithms and Data Structures certificate awarded to Jomari Candido" loading="lazy">
-        <span class="eyebrow">freeCodeCamp · December 2023</span><strong>JavaScript Algorithms &amp; Data Structures</strong>
-      </button>
-      <button class="cert-card" type="button" data-lightbox="assets/ojt-certificate.webp" data-caption="Department of Agriculture · OJT Certificate of Completion">
-        <img src="assets/ojt-certificate.webp" width="1903" height="1280" alt="Department of Agriculture certificate for completing 300 hours of on-the-job training" loading="lazy">
-        <span class="eyebrow">Department of Agriculture · January 2026</span><strong>OJT Certificate of Completion</strong>
-      </button>
-    </div>
-  </div>
-
-  <div class="panel" id="panel-stack" role="tabpanel" aria-labelledby="tab-stack" hidden>
-    <ul class="stack-grid">
-      <li style="--brand:#61dafb"><span class="icon" data-icon="react"></span>React</li>
-      <li style="--brand:#3178c6"><span class="icon" data-icon="typescript"></span>TypeScript</li>
-      <li style="--brand:#f7df1e"><span class="icon" data-icon="javascript"></span>JavaScript</li>
-      <li style="--brand:#e34f26"><span class="icon" data-icon="html5"></span>HTML</li>
-      <li style="--brand:#663399"><span class="icon" data-icon="css"></span>CSS</li>
-      <li style="--brand:#9135ff"><span class="icon" data-icon="vite"></span>Vite</li>
-      <li style="--brand:#3fcf8e"><span class="icon" data-icon="supabase"></span>Supabase</li>
-      <li style="--brand:#4169e1"><span class="icon" data-icon="postgresql"></span>PostgreSQL</li>
-      <li style="--brand:#ffca28"><span class="icon" data-icon="firebase"></span>Firebase</li>
-      <li style="--brand:#119eff"><span class="icon" data-icon="capacitor"></span>Capacitor</li>
-      <li style="--brand:#9b4f96"><span class="glyph">C#</span>C#</li>
-      <li style="--brand:#512bd4"><span class="icon" data-icon="dotnet"></span>.NET / WinForms</li>
-      <li style="--brand:#ed8b00"><span class="icon" data-icon="openjdk"></span>Java</li>
-      <li style="--brand:#a4373a"><span class="glyph">A</span>MS Access</li>
-      <li style="--brand:#f05032"><span class="icon" data-icon="git"></span>Git</li>
-      <li style="--brand:#ffffff"><span class="icon" data-icon="github"></span>GitHub</li>
-      <li style="--brand:#00c7b7"><span class="icon" data-icon="netlify"></span>Netlify</li>
-    </ul>
-    <p class="credit muted small">Technology icons: Simple Icons 15.0.0 (CC0). Names and marks belong to their owners and identify skills, not endorsements.</p>
+  <div class="timeline">
+    <article class="tl-row reveal">
+      <button class="tl-media" type="button" data-lightbox="assets/ojt-certificate.webp" data-caption="Department of Agriculture · OJT Certificate of Completion"><img src="assets/ojt-certificate.webp" width="1903" height="1280" alt="Department of Agriculture certificate for completing 300 hours of on-the-job training" loading="lazy"></button>
+      <div class="tl-text">
+        <div class="tl-head"><h3>On-the-Job Training</h3><span class="mono small">Jul 27 — Nov 7, 2025</span></div>
+        <p class="tl-org">Department of Agriculture · Information and Communications Technology Service</p>
+        <p class="muted">Completed 300 hours of on-the-job training providing telephone and internet connectivity support, coding and server-related assistance.</p>
+        <button class="cert-link mono" type="button" data-lightbox="assets/ojt-certificate.webp" data-caption="Department of Agriculture · OJT Certificate of Completion">Certificate of completion ↗</button>
+      </div>
+    </article>
+    <article class="tl-row reverse reveal">
+      <button class="tl-media" type="button" data-lightbox="assets/freecodecamp-certificate.webp" data-caption="freeCodeCamp · JavaScript Algorithms & Data Structures"><img src="assets/freecodecamp-certificate.webp" width="1000" height="681" alt="freeCodeCamp JavaScript Algorithms and Data Structures certificate awarded to Jomari Candido" loading="lazy"></button>
+      <div class="tl-text">
+        <div class="tl-head"><h3>JavaScript Algorithms &amp; Data Structures</h3><span class="mono small">December 2023</span></div>
+        <p class="tl-org">freeCodeCamp</p>
+        <p class="muted">Self-paced certification covering JavaScript fundamentals, algorithm scripting, data structures and functional and object-oriented programming.</p>
+        <button class="cert-link mono" type="button" data-lightbox="assets/freecodecamp-certificate.webp" data-caption="freeCodeCamp · JavaScript Algorithms & Data Structures">Certificate ↗</button>
+      </div>
+    </article>
+    <article class="tl-row reveal no-media">
+      <div class="tl-text">
+        <div class="tl-head"><h3>Bachelor of Science in Computer Science</h3><span class="mono small">2022 — 2026</span></div>
+        <p class="tl-org">St. Clare College of Caloocan City</p>
+        <p class="muted">Graduated 2026. Sole developer of academic group projects that became ZolTrack, MediSched, C’est Délicieux and Registrix.</p>
+      </div>
+    </article>
   </div>
 </section>
 
 <section id="contact" class="section wrap">
-  <div class="section-head reveal">
-    <h2 class="display-sm">Contact Me</h2>
-    <p>Have something in mind? Send a message and let’s connect.</p>
-  </div>
   <div class="contact">
-    <div class="card contact-form reveal">
-      <h3>Get in touch</h3>
-      <p class="muted">Feel free to reach out if you want to collaborate, discuss an opportunity or simply say hello.</p>
-      <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?sent=1#contact">
-        <input type="hidden" name="form-name" value="contact">
-        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <label class="field"><span class="visually-hidden">Your name</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><input name="name" autocomplete="name" placeholder="Your name" required maxlength="100"></label>
-        <label class="field"><span class="visually-hidden">Your email</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><input name="email" type="email" autocomplete="email" placeholder="Your email" required maxlength="200"></label>
-        <label class="field area"><span class="visually-hidden">Your message</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/></svg><textarea name="message" rows="5" placeholder="Your message" required maxlength="2000"></textarea></label>
-        <button class="btn primary wide" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>Send message</button>
-        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-      </form>
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="giant">Let’s<br>work<br>together</h2>
+      <p class="contact-lead">Looking for the next problem worth solving.</p>
+      <p class="muted">I’m open to full-time and freelance opportunities in web development, IT support and software projects.</p>
+      <a class="btn primary pill" href="assets/Jomari-Candido-Resume.pdf" download>Download résumé <span aria-hidden="true">→</span></a>
     </div>
-    <div class="card connect reveal">
-      <h3>Connect with me</h3>
-      <p class="muted">Prefer a direct line? Reach me through any of these.</p>
-      <div class="connect-list">
-        <a class="connect-item" href="mailto:jomaricandido18@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><strong>Email</strong><small>jomaricandido18@gmail.com</small></span></a>
-        <a class="connect-item" href="https://github.com/jomari18" target="_blank" rel="noopener"><span class="icon" data-icon="github"></span><span><strong>GitHub</strong><small>@jomari18</small></span></a>
-        <a class="connect-item" href="https://www.linkedin.com/in/jomari-candido-26935a28a" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><span><strong>LinkedIn</strong><small>Jomari Candido</small></span></a>
-        <a class="connect-item" href="tel:+639101305953"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span><strong>Phone</strong><small>0910 130 5953</small></span></a>
-      </div>
-      <button class="btn wide" id="copy-email" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy email</button>
-      <p class="form-status" id="copy-status" role="status" aria-live="polite"></p>
+    <div class="contact-cards">
+      <a class="contact-card" href="mailto:jomaricandido18@gmail.com"><span class="cc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="cc-text"><small class="mono">Email</small><strong>jomaricandido18@gmail.com</strong></span><span class="cc-num mono">01</span></a>
+      <a class="contact-card" href="https://github.com/jomari18" target="_blank" rel="noopener"><span class="cc-icon"><span class="icon" data-icon="github"></span></span><span class="cc-text"><small class="mono">GitHub</small><strong>github.com/jomari18</strong></span><span class="cc-num mono">02</span></a>
+      <a class="contact-card" href="https://www.linkedin.com/in/jomari-candido-26935a28a" target="_blank" rel="noopener"><span class="cc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></span><span class="cc-text"><small class="mono">LinkedIn</small><strong>Jomari Candido</strong></span><span class="cc-num mono">03</span></a>
+      <a class="contact-card" href="tel:+639101305953"><span class="cc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span class="cc-text"><small class="mono">Phone</small><strong>0910 130 5953</strong></span><span class="cc-num mono">04</span></a>
+      <button class="btn outline pill wide" type="button" data-open-message>Send me a message <span aria-hidden="true">→</span></button>
     </div>
   </div>
+</section>
+
+<section class="cta wrap" aria-labelledby="cta-title">
+  <div>
+    <p class="eyebrow">Have a project in mind?</p>
+    <h2 id="cta-title" class="cta-title">Let’s build<br>something useful.</h2>
+  </div>
+  <button class="btn outline pill" type="button" data-open-message>Hire Me <span aria-hidden="true">→</span></button>
 </section>
 </main>
 
 <footer class="footer wrap">
   <span>© 2026 Jomari M. Candido</span>
-  <a href="#home">Back to top ↑</a>
+  <span>Built with HTML, CSS &amp; JavaScript</span>
 </footer>
+
+<a class="to-top" id="to-top" href="#home" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+
+<section class="message-window" id="message-window" aria-labelledby="mw-title" hidden>
+  <div class="mw-bar">
+    <h2 id="mw-title">Send me a message</h2>
+    <div class="mw-controls">
+      <button type="button" id="mw-min" aria-label="Minimize message window" aria-expanded="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg></button>
+      <button type="button" id="mw-close" aria-label="Close message window"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+  </div>
+  <form class="mw-body" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?sent=1#contact">
+    <input type="hidden" name="form-name" value="contact">
+    <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <label class="mw-field"><span class="mono">Full name</span><input name="name" autocomplete="name" placeholder="Your full name" required maxlength="100"></label>
+    <label class="mw-field"><span class="mono">Email address</span><input name="email" type="email" autocomplete="email" placeholder="your.email@example.com" required maxlength="200"></label>
+    <label class="mw-field"><span class="mono">Message</span><textarea name="message" rows="6" placeholder="Tell me about your project…" required maxlength="2000"></textarea></label>
+    <button class="btn primary pill" type="submit">Send message <span aria-hidden="true">→</span></button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+  </form>
+</section>
 
 <dialog class="modal project-modal" id="project-modal" aria-labelledby="pm-title">
   <div class="modal-inner">
@@ -281,8 +393,8 @@
         <ul class="chips" id="pm-tech"></ul>
       </div>
       <div>
-        <div class="shot"><img id="pm-shot" alt=""></div>
-        <div class="card pm-features"><h3 class="pm-sub">Key features</h3><ul id="pm-features"></ul></div>
+        <div class="shot"><img id="pm-shot" alt="" width="1600" height="800"></div>
+        <div class="pm-features"><h3 class="pm-sub">Key features</h3><ul id="pm-features"></ul></div>
       </div>
     </div>
   </div>
