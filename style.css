@@ -245,6 +245,16 @@ ul,dl,dd{margin:0;padding:0;list-style:none}
 .cert-link{border:0;background:none;padding:0;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
 .cert-link:hover{text-decoration:underline;text-underline-offset:4px}
 
+/* Seminars */
+.seminars{margin-top:80px}
+.seminars-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.seminars-head .eyebrow{margin:0}
+.seminar-list{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;margin:0;padding:0;list-style:none}
+.seminar-list li{display:grid;grid-template-columns:86px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.seminar-list time{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding-top:3px}
+.seminar-list h3{font:600 16px/1.45 var(--font);margin-bottom:8px}
+.seminar-tag{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:4px 8px;border-radius:6px;background:var(--card);border:1px solid var(--line)}
+
 /* Contact */
 .contact{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
 .giant{font:900 clamp(56px,9vw,124px)/.9 var(--font);letter-spacing:-.05em;text-transform:uppercase;margin-bottom:30px}
@@ -357,6 +367,8 @@ ul,dl,dd{margin:0;padding:0;list-style:none}
   .project-row{grid-template-columns:1fr;gap:10px}
   .row-num{padding:0}
   .cap-cards{grid-template-columns:1fr}
+  .seminar-list{grid-template-columns:1fr}
+  .seminar-list li{grid-template-columns:72px 1fr;gap:12px}
   .tool-grid{grid-template-columns:repeat(5,1fr)}
   .tool-grid li{width:auto;aspect-ratio:1;height:auto}
   .profile{flex-direction:column;align-items:flex-start;gap:16px}
