@@ -107,7 +107,7 @@
       <h3 id="cf-title">ZolTrack</h3>
       <p id="cf-summary">Maintenance requests, borrowing and inventory with role-based workflows for users and administrators.</p>
       <div class="cf-actions">
-        <button class="text-btn" type="button" id="cf-details">View project <span aria-hidden="true">→</span></button>
+        <button class="text-btn" type="button" id="cf-details">Watch tour &amp; details <span aria-hidden="true">→</span></button>
         <a class="text-btn" id="cf-live" href="https://zoltrack.netlify.app" target="_blank" rel="noopener">Live demo <span aria-hidden="true">↗</span></a>
       </div>
       <div class="cf-nav"><button type="button" class="icon-btn" id="cf-prev" aria-label="Previous project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><span class="mono" id="cf-count">01 / 05</span><button type="button" class="icon-btn" id="cf-next" aria-label="Next project"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
@@ -117,7 +117,7 @@
   <div class="project-list" id="all-projects">
     <p class="eyebrow">All projects</p>
 
-    <article class="project-row" data-project="zoltrack">
+    <article class="project-row" data-project="zoltrack" data-video="assets/videos/zoltrack.webm">
       <span class="row-num mono">01</span>
       <div class="row-body">
         <h3>ZolTrack</h3>
@@ -139,7 +139,7 @@
       </template>
     </article>
 
-    <article class="project-row" data-project="zolnutrition">
+    <article class="project-row" data-project="zolnutrition" data-video="assets/videos/zolnutrition.webm">
       <span class="row-num mono">02</span>
       <div class="row-body">
         <h3>ZolNutrition</h3>
@@ -161,7 +161,7 @@
       </template>
     </article>
 
-    <article class="project-row" data-project="medisched">
+    <article class="project-row" data-project="medisched" data-video="assets/videos/medisched.webm">
       <span class="row-num mono">03</span>
       <div class="row-body">
         <h3>MediSched</h3>
@@ -183,7 +183,7 @@
       </template>
     </article>
 
-    <article class="project-row" data-project="cest-delicieux">
+    <article class="project-row" data-project="cest-delicieux" data-video="assets/videos/cestdelicieux.webm">
       <span class="row-num mono">04</span>
       <div class="row-body">
         <h3>C’est Délicieux</h3>
@@ -205,7 +205,7 @@
       </template>
     </article>
 
-    <article class="project-row" data-project="registrix">
+    <article class="project-row" data-project="registrix" data-video="assets/videos/registrix.webm">
       <span class="row-num mono">05</span>
       <div class="row-body">
         <h3>Registrix</h3>
@@ -451,7 +451,15 @@
         <ul class="chips" id="pm-tech"></ul>
       </div>
       <div>
-        <div class="shot"><img id="pm-shot" alt="" width="1600" height="800"></div>
+        <div class="shot media">
+          <img id="pm-shot" alt="" width="1600" height="800">
+          <video id="pm-video" muted loop playsinline preload="none" aria-label="Walkthrough of the app" hidden></video>
+          <span class="tour-badge mono" id="pm-tour" hidden><span class="rec" aria-hidden="true"></span>App walkthrough</span>
+        </div>
+        <div class="tour-controls" id="pm-tour-controls" hidden>
+          <button class="pill-btn" type="button" id="pm-play">Pause tour</button>
+          <span class="muted small">Recorded with test accounts</span>
+        </div>
         <div class="pm-features"><h3 class="pm-sub">Key features</h3><ul id="pm-features"></ul></div>
       </div>
     </div>

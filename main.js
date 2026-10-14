@@ -141,6 +141,13 @@
   // Project details dialog (content comes from each row's template)
   const rows = $$('.project-row');
   const modal = $('#project-modal');
+  const tourVideo = $('#pm-video'), playButton = $('#pm-play');
+  const setPlayLabel = playing => { playButton.textContent = playing ? 'Pause tour' : 'Play tour'; };
+  playButton.addEventListener('click', () => {
+    if (tourVideo.paused) tourVideo.play().then(() => setPlayLabel(true), () => setPlayLabel(false));
+    else { tourVideo.pause(); setPlayLabel(false); }
+  });
+  modal.addEventListener('close', () => tourVideo.pause());
   const openProject = row => {
     const tpl = $('template', row).content;
     const features = $$('[data-features] li', tpl);
@@ -161,6 +168,19 @@
     }));
     const img = $('#pm-shot');
     img.src = shot.getAttribute('src'); img.alt = shot.alt;
+    const video = $('#pm-video'), hasVideo = Boolean(row.dataset.video);
+    video.pause();
+    img.hidden = hasVideo;
+    video.hidden = !hasVideo;
+    $('#pm-tour').hidden = !hasVideo;
+    $('#pm-tour-controls').hidden = !hasVideo;
+    if (hasVideo) {
+      video.poster = shot.getAttribute('src');
+      if (video.getAttribute('src') !== row.dataset.video) video.src = row.dataset.video;
+      video.currentTime = 0;
+      video.setAttribute('aria-label', `Walkthrough of ${$('h3', row).textContent}`);
+      if (reduced) setPlayLabel(false); else video.play().then(() => setPlayLabel(true), () => setPlayLabel(false));
+    }
     modal.showModal();
     $('.modal-inner', modal).scrollTop = 0;
   };
