@@ -535,3 +535,23 @@ button.award-card:hover{transform:translateX(4px);border-color:var(--line-2)}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .reveal{opacity:1;transform:none}
 }
+
+/* Hero: stacked layout on tablets (portrait, then text, then project deck) */
+@media (min-width:761px) and (max-width:1100px){
+  .hero{height:auto;min-height:0;padding-top:110px;display:flex;flex-direction:column}
+  .hero::before{top:360px;bottom:auto;height:560px;background:radial-gradient(ellipse 55% 45% at 50% 50%,var(--glow-strong),transparent 72%)}
+  .marquee{top:190px;transform:none}
+  .marquee span{font-size:150px}
+  .hero-portrait{position:relative;left:auto;transform:none;width:min(80%,560px);margin:0 auto}
+  .hero-text,.hero-side{position:relative;left:auto;right:auto;bottom:auto;max-width:none;padding:28px 40px 0}
+  .hero-side{display:flex;flex-wrap:wrap;align-items:flex-end;gap:28px;padding-bottom:24px}
+  .hero-tags{position:relative;left:auto;right:auto;bottom:auto;padding:12px 40px 30px;flex-wrap:wrap;justify-content:flex-start;gap:8px 28px}
+  .scroll-down{display:none}
+}
+/* Laptops: keep the deck clear of the portrait */
+@media (min-width:1101px) and (max-width:1320px){
+  .hero-portrait{width:min(62vh,560px)}
+  .deck{width:230px;height:182px}
+  .hero-side{right:28px}
+  .hero-text{left:28px}
+}
