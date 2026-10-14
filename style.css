@@ -133,7 +133,7 @@ ul,dl,dd{margin:0;padding:0;list-style:none}
 .head-row .muted{margin:0}
 
 /* Work: coverflow */
-.coverflow{margin-top:10px;overflow-x:clip}
+.coverflow{margin-top:10px}
 .lanyard-zone{overflow-x:clip}
 .cf-stage{position:relative;height:clamp(220px,30vw,360px);perspective:1400px;touch-action:pan-y}
 .cf-card{position:absolute;top:0;left:50%;width:min(54%,620px);padding:0;border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);transform:translateX(calc(-50% + var(--offset,0) * 46%)) translateZ(calc(var(--depth,0) * -1px)) rotateY(var(--angle,0deg)) scale(var(--scale,1));opacity:var(--opacity,1);z-index:var(--layer,1);filter:brightness(var(--bright,1));transition:transform .7s var(--ease),opacity .5s,filter .5s}
@@ -555,3 +555,5 @@ button.award-card:hover{transform:translateX(4px);border-color:var(--line-2)}
   .hero-side{right:28px}
   .hero-text{left:28px}
 }
+/* Only phones need the gallery clipped; wider screens show the full side cards */
+@media (max-width:1320px){.coverflow{overflow-x:clip}}

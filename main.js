@@ -182,7 +182,7 @@
       if (reduced) setPlayLabel(false); else video.play().then(() => setPlayLabel(true), () => setPlayLabel(false));
     }
     // Case-study side menu built from the section headings
-    const sections = [...$$('#pm-body .case'), $('#pm-features-block')];
+    const sections = [...$$('#pm-body .case'), $('.pm-features', modal)];
     const toc = $('#pm-toc');
     toc.replaceChildren(...sections.map((section, i) => {
       section.id = `pm-sec-${i}`;
@@ -218,6 +218,24 @@
   $('.modal-inner', modal).addEventListener('scroll', syncToc, {passive: true});
   rows.forEach(row => $('[data-details]', row).addEventListener('click', () => openProject(row)));
 
+  // Auto-rotation that never moves things under the user: paused while hovered,
+  // focused, off-screen or while a project is open; stopped for good after any manual use.
+  const autoRotate = (area, step, ms) => {
+    let timer = 0, hovered = false, focused = false, visible = false, used = reduced;
+    const run = () => {
+      const ok = !used && !hovered && !focused && visible && !modal.open;
+      if (ok && !timer) timer = setInterval(step, ms);
+      if (!ok && timer) { clearInterval(timer); timer = 0; }
+    };
+    area.addEventListener('pointerenter', () => { hovered = true; run(); });
+    area.addEventListener('pointerleave', () => { hovered = false; run(); });
+    area.addEventListener('focusin', () => { focused = true; run(); });
+    area.addEventListener('focusout', event => { if (!area.contains(event.relatedTarget)) { focused = false; run(); } });
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; run(); }).observe(area);
+    modal.addEventListener('close', run);
+    return {stop: () => { used = true; run(); }, sync: run};
+  };
+
   // Hero project deck: three stacked cards that shuffle; the top card opens its details
   const deckStack = $('#deck-stack');
   const deckCards = rows.map((row, i) => {
@@ -231,18 +249,24 @@
     $('strong', card).textContent = $('h3', row).textContent;
     $('small', card).textContent = $('.row-meta', row).textContent.split('·')[1]?.trim() || '';
     card.setAttribute('aria-label', `Open ${$('h3', row).textContent} details`);
-    card.addEventListener('click', () => { if (card.dataset.pos === '0') openProject(row); });
+    card.addEventListener('click', () => {
+      deckAuto.stop();
+      if (card.dataset.pos === '0') openProject(row);
+      else { deckTop = i; layoutDeck(); }
+    });
     deckStack.append(card);
     return card;
   });
-  let deckTop = 0, deckTimer = 0;
+  let deckTop = 0;
   const layoutDeck = (outgoing = -1) => {
     deckCards.forEach((card, i) => {
       const pos = (i - deckTop + deckCards.length) % deckCards.length;
       card.dataset.pos = i === outgoing ? 'out' : pos < 3 ? String(pos) : 'hidden';
       card.style.zIndex = String(10 - pos);
-      card.tabIndex = pos === 0 ? 0 : -1;
-      card.setAttribute('aria-hidden', String(pos !== 0));
+      card.tabIndex = pos < 3 ? 0 : -1;
+      card.setAttribute('aria-hidden', String(pos >= 3));
+      const name = $('strong', card).textContent;
+      card.setAttribute('aria-label', pos === 0 ? `Open ${name} details` : `Show ${name}`);
     });
   };
   const shuffle = () => {
@@ -252,20 +276,13 @@
     setTimeout(() => layoutDeck(), reduced ? 0 : 450);
   };
   layoutDeck();
-  $('#deck-shuffle').addEventListener('click', shuffle);
-  const deck = $('#deck');
-  const startDeck = () => { if (!reduced && !deckTimer) deckTimer = setInterval(shuffle, 4200); };
-  const stopDeck = () => { clearInterval(deckTimer); deckTimer = 0; };
-  deck.addEventListener('pointerenter', stopDeck);
-  deck.addEventListener('pointerleave', startDeck);
-  deck.addEventListener('focusin', stopDeck);
-  deck.addEventListener('focusout', startDeck);
-  new IntersectionObserver(([entry]) => (entry.isIntersecting ? startDeck() : stopDeck())).observe(deck);
+  const deckAuto = autoRotate($('#deck'), shuffle, 4200);
+  $('#deck-shuffle').addEventListener('click', () => { deckAuto.stop(); shuffle(); });
 
   // Work gallery coverflow
   const cards = $$('.cf-card');
   const stage = $('#cf-stage');
-  let current = 0, autoplay = 0;
+  let current = 0;
   const select = index => {
     current = (index + cards.length) % cards.length;
     cards.forEach((card, i) => {
@@ -288,13 +305,14 @@
     $('#cf-live').href = $('.row-actions a', row).href;
     $('#cf-count').textContent = `${String(current + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
   };
-  cards.forEach((card, i) => card.addEventListener('click', () => (i === current ? openProject(rows[i]) : select(i))));
-  $('#cf-prev').addEventListener('click', () => select(current - 1));
-  $('#cf-next').addEventListener('click', () => select(current + 1));
-  $('#cf-details').addEventListener('click', () => openProject(rows[current]));
+  const manual = fn => (...args) => { galleryAuto.stop(); fn(...args); };
+  cards.forEach((card, i) => card.addEventListener('click', manual(() => (i === current ? openProject(rows[i]) : select(i)))));
+  $('#cf-prev').addEventListener('click', manual(() => select(current - 1)));
+  $('#cf-next').addEventListener('click', manual(() => select(current + 1)));
+  $('#cf-details').addEventListener('click', manual(() => openProject(rows[current])));
   stage.addEventListener('keydown', event => {
-    if (event.key === 'ArrowRight') { event.preventDefault(); select(current + 1); cards[current].focus(); }
-    if (event.key === 'ArrowLeft') { event.preventDefault(); select(current - 1); cards[current].focus(); }
+    if (event.key === 'ArrowRight') { event.preventDefault(); galleryAuto.stop(); select(current + 1); cards[current].focus(); }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); galleryAuto.stop(); select(current - 1); cards[current].focus(); }
   });
   let swipe = null;
   stage.addEventListener('pointerdown', event => { if (event.pointerType !== 'mouse') swipe = {x: event.clientX, y: event.clientY}; });
@@ -302,16 +320,9 @@
     if (!swipe) return;
     const dx = event.clientX - swipe.x, dy = event.clientY - swipe.y;
     swipe = null;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) select(current + (dx < 0 ? 1 : -1));
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) { galleryAuto.stop(); select(current + (dx < 0 ? 1 : -1)); }
   });
-  const gallery = $('#coverflow');
-  const startAuto = () => { if (!reduced && !autoplay) autoplay = setInterval(() => select(current + 1), 4500); };
-  const stopAuto = () => { clearInterval(autoplay); autoplay = 0; };
-  gallery.addEventListener('pointerenter', stopAuto);
-  gallery.addEventListener('pointerleave', startAuto);
-  gallery.addEventListener('focusin', stopAuto);
-  gallery.addEventListener('focusout', startAuto);
-  new IntersectionObserver(([entry]) => (entry.isIntersecting ? startAuto() : stopAuto())).observe(gallery);
+  const galleryAuto = autoRotate($('#coverflow'), () => select(current + 1), 4500);
   select(0);
 
   // Hanging ID card: a damped pendulum you can grab and swing
