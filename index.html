@@ -5,9 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Jomari M. Candido — Computer Science graduate and full-stack web developer. Explore ZolTrack, ZolNutrition, MediSched, C’est Délicieux and Registrix.">
 <meta name="theme-color" content="#0e1013">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jomaricandido.netlify.app/">
 <meta property="og:title" content="Jomari M. Candido · Developer Portfolio">
-<meta property="og:description" content="Five live web applications built with React, TypeScript, JavaScript and Supabase.">
-<meta property="og:image" content="assets/portrait.webp">
+<meta property="og:description" content="Full-stack web developer. Five live web applications built with React, TypeScript, JavaScript and Supabase.">
+<meta property="og:image" content="https://jomaricandido.netlify.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jomari M. Candido, developer portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jomaricandido.netlify.app/">
 <title>Jomari Candido · Developer Portfolio</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1013'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial Black,Arial' font-size='26' font-weight='900' fill='%23ececec'%3EJC%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +51,7 @@
       <a href="#work" data-nav="work">Work</a>
       <a href="#skills" data-nav="skills">What I Can Do</a>
       <a href="#about" data-nav="about">About</a>
+      <a href="#experience" data-nav="experience">Experience</a>
       <a href="#credentials" data-nav="credentials">Credentials</a>
       <a href="#contact" data-nav="contact">Contact</a>
     </div>
@@ -121,7 +129,10 @@
       <template>
         <img src="assets/projects/zoltrack.webp" alt="ZolTrack maintenance and asset management landing page">
         <p class="detail-kicker">Web application · Maintenance &amp; asset management</p>
-        <p>I was the sole developer of FixIt Clare, submitted as a group thesis project at St. Clare College. I later refined it as ZolTrack, a web-based system that centralizes maintenance requests, inventory, asset borrowing, account approval, notifications, audit history and operational reporting.</p>
+        <div class="case"><h4>The problem</h4><p>School facilities tracked maintenance requests, borrowed equipment and inventory informally, so it was hard to see what was pending, who had which item and how much stock was left.</p></div>
+        <div class="case"><h4>What I built</h4><p>A role-based web system for users, admins and super admins: maintenance requests with server-generated IDs, inventory and borrowing with approval and return handling, in-app notifications, an audit log, dashboard charts and CSV reports.</p></div>
+        <div class="case"><h4>The hard part</h4><p>Keeping stock correct. Completing a maintenance job and deducting the parts it used happen in one atomic PostgreSQL function, admin actions are re-checked on the server with row-level security, and verification documents live in a private storage bucket.</p></div>
+        <div class="case"><h4>Result</h4><p>It started as FixIt Clare, the group thesis project I developed alone at St. Clare College, and is now ZolTrack v9—live with email OTP sign-up, account approval and code-based password recovery.</p></div>
         <ul data-features><li>Role-based workflows for User, Admin and Super Admin accounts</li><li>Maintenance request tracking and inventory &amp; borrowing workflows</li><li>Account approvals with email OTP and code-based password recovery</li><li>Private verification-document storage with controlled access</li></ul>
         <ul data-tech><li>JavaScript</li><li>Supabase</li><li>PostgreSQL</li><li>Netlify</li></ul>
         <p data-links><a href="https://zoltrack.netlify.app">Live demo</a><a href="https://github.com/jomari18/zoltrack">Source code</a></p>
@@ -140,7 +151,10 @@
       <template>
         <img src="assets/projects/zolnutrition.webp" alt="ZolNutrition meal tracker sign-in page">
         <p class="detail-kicker">Web &amp; Android application · Meal and nutrition tracker</p>
-        <p>Built around a routine I know firsthand. Developed through iterative design, implementation and testing on desktop and mobile, with OTP signup and password recovery, food search, reusable meals and Android packaging with Capacitor.</p>
+        <div class="case"><h4>The problem</h4><p>General calorie apps did not fit a training routine, where targets differ between training days and rest days and progress is judged week by week.</p></div>
+        <div class="case"><h4>What I built</h4><p>A React and Vite tracker with daily calorie and macro targets, meal logging, saved meals, food search, a seven-day review and weight trends—plus an Android build packaged with Capacitor.</p></div>
+        <div class="case"><h4>The hard part</h4><p>Keeping the numbers honest: targets switch between training and rest days, unlogged days show a dash instead of zero, and averages count only the days that were actually logged.</p></div>
+        <div class="case"><h4>Result</h4><p>A live web app and Android build with OTP sign-up and password recovery, covered by 37 automated tests and 28 browser checks for the recovery flow.</p></div>
         <ul data-features><li>Meal logging and saved meals</li><li>Training and rest-day calorie and macro targets</li><li>Seven-day review with weight trends</li><li>Desktop sidebar and mobile bottom navigation</li></ul>
         <ul data-tech><li>React</li><li>Vite</li><li>Supabase</li><li>Capacitor</li></ul>
         <p data-links><a href="https://zolnutrition.netlify.app">Live demo</a><a href="https://github.com/jomari18/zolnutrition">Source code</a></p>
@@ -159,7 +173,10 @@
       <template>
         <img src="assets/projects/medisched.webp" alt="MediSched clinic appointment landing page with a calendar and stethoscope">
         <p class="detail-kicker">Web application · Clinic appointment scheduling</p>
-        <p>I was the sole developer of the original academic group project, built on Firebase. I later rebuilt it on Supabase with transactional booking, database-enforced overlap prevention and clinic hours, a private staff workspace, expiring QR passes and appointment confirmation emails.</p>
+        <div class="case"><h4>The problem</h4><p>Hand-booked clinic appointments risk double bookings, and staff need a reliable way to know which patients have actually arrived.</p></div>
+        <div class="case"><h4>What I built</h4><p>Patient booking with live available slots, history and cancellation, plus a private staff workspace with the daily schedule, QR check-in, consultation progress and clinic analytics. Confirmation emails are sent from a Supabase Edge Function.</p></div>
+        <div class="case"><h4>The hard part</h4><p>Preventing double bookings even when two people book the same slot at the same moment. A PostgreSQL exclusion constraint rejects overlapping visits per doctor, clinic hours are enforced in the database, and retries reuse a request ID so a lost response never creates a duplicate.</p></div>
+        <div class="case"><h4>Result</h4><p>Rebuilt from the original Firebase academic project—which I developed alone—into a live Supabase app with 59 unit tests plus PostgreSQL integration tests.</p></div>
         <ul data-features><li>Available slots, booking, history and cancellation</li><li>Expiring QR passes with staff camera or manual check-in</li><li>Staff schedule, consultation progress and clinic analytics</li><li>Email OTP sign-up and password recovery</li></ul>
         <ul data-tech><li>JavaScript</li><li>Supabase</li><li>PostgreSQL</li><li>Edge Functions</li><li>Netlify</li></ul>
         <p data-links><a href="https://mymedisched.netlify.app">Live demo</a><a href="https://github.com/jomari18/MediSched">Source code</a></p>
@@ -178,7 +195,10 @@
       <template>
         <img src="assets/projects/cest-delicieux.webp" alt="C’est Délicieux supper club home page with a candlelit dining room">
         <p class="detail-kicker">Web &amp; Android application · Restaurant ordering</p>
-        <p>I was the sole developer of the original academic group project, a static food website. I later rebuilt it as a full ordering app with accounts, transactional order placement, delivery fees by distance, a staff order dashboard and an Android build.</p>
+        <div class="case"><h4>The problem</h4><p>The original academic project was a static food website: it could show a menu, but real ordering needs accounts, current prices, delivery fees and a way for staff to track orders.</p></div>
+        <div class="case"><h4>What I built</h4><p>A React and TypeScript ordering app with a searchable 25-dish menu, a persistent cart, pickup or delivery checkout, order history, a staff dashboard for order progress and menu editing, and an Android build.</p></div>
+        <div class="case"><h4>The hard part</h4><p>Placing orders safely. Orders are created in one transaction using current prices and saved as unchangeable snapshots, identical retries are recognised, and delivery fees come from server-side road distance (₱15/km, ₱50 minimum) with quotes that expire after five minutes.</p></div>
+        <div class="case"><h4>Result</h4><p>A live web app and Android build, covered by 79 automated tests and browser checks on desktop and mobile.</p></div>
         <ul data-features><li>Menu search and a persistent cart</li><li>Pickup or delivery with distance-based fees</li><li>Order history, cancellation and staff order progress</li><li>Email verification and code-based password recovery</li></ul>
         <ul data-tech><li>React</li><li>TypeScript</li><li>Supabase</li><li>Capacitor</li></ul>
         <p data-links><a href="https://cestdelicieux.netlify.app">Live demo</a><a href="https://github.com/jomari18/CestDelicieux">Source code</a></p>
@@ -197,7 +217,10 @@
       <template>
         <img src="assets/projects/registrix.webp" alt="Registrix student records sign-in page">
         <p class="detail-kicker">Web application · Student records &amp; grading</p>
-        <p>I was the sole developer of the original academic group project, a C# Windows Forms app backed by Microsoft Access. I rebuilt it for the web as Registrix, with role-based access for administrators, registrars and teachers.</p>
+        <div class="case"><h4>The problem</h4><p>The original student-records project was a C# Windows Forms app backed by Microsoft Access, so it ran on a single PC and could not safely share records between administrators, registrars and teachers.</p></div>
+        <div class="case"><h4>What I built</h4><p>A React, TypeScript and Supabase web app with staff account approval, teacher class assignments, multiple class enrollments per student, six grading scores per enrollment and archive and restore.</p></div>
+        <div class="case"><h4>The hard part</h4><p>Grading rules that never guess. The General Average is calculated on the server, partial scores stay Incomplete, empty values stay empty while zero remains a valid score, and stale edits are rejected instead of overwriting newer work.</p></div>
+        <div class="case"><h4>Result</h4><p>A live web app covered by 53 unit tests, database regression tests and Playwright browser audits across desktop, tablet and mobile.</p></div>
         <ul data-features><li>One student identity across multiple class enrollments</li><li>Automatic General Average and Incomplete handling</li><li>Administrator approval and teacher class assignments</li><li>Archive and restore with stale-edit protection</li></ul>
         <ul data-tech><li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li></ul>
         <p data-links><a href="https://registrix.netlify.app">Live demo</a><a href="https://github.com/jomari18/Registrix">Source code</a></p>
@@ -261,7 +284,7 @@
           <p class="profile-name">JOMARI M. CANDIDO <svg class="verified" viewBox="0 0 24 24" aria-label="Verified"><path d="M12 2l2.4 2.1 3.2-.3.9 3.1 2.8 1.6-1.1 3 1.1 3-2.8 1.6-.9 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.9-3.1-2.8-1.6 1.1-3-1.1-3 2.8-1.6.9-3.1 3.2.3z"/><path class="tick" d="m8.5 12 2.3 2.3 4.7-4.6"/></svg></p>
           <dl class="profile-stats">
             <div><dt>Projects</dt><dd data-count="5">5</dd></div>
-            <div><dt>Certificates</dt><dd data-count="2">2</dd></div>
+            <div><dt>Certificates</dt><dd data-count="7">7</dd></div>
             <div><dt>BSCS graduated</dt><dd>2026</dd></div>
           </dl>
         </div>
@@ -291,37 +314,57 @@
   </div>
 </section>
 
+<section id="experience" class="section wrap">
+  <p class="eyebrow">Work history</p>
+  <h2 class="type-title" data-type>Experience</h2>
+  <p class="muted lead-sm">Programming work first—plus the jobs that taught me communication, customer service and time management.</p>
+
+  <div class="exp-main">
+    <article class="exp-card reveal">
+      <div class="exp-top"><span class="exp-badge mono">Internship</span><span class="mono small muted">Jul — Nov 2025</span></div>
+      <h3>IT Support Intern</h3>
+      <p class="exp-org">Department of Agriculture · Information and Communications Technology Service</p>
+      <ul class="exp-points"><li>Completed 300 hours of on-the-job training</li><li>Supported telephone and internet connectivity</li><li>Assisted with coding and server-related work</li></ul>
+    </article>
+    <article class="exp-card reveal">
+      <div class="exp-top"><span class="exp-badge mono">Freelance</span><span class="mono small muted">Programming</span></div>
+      <h3>Freelance Programming Projects</h3>
+      <p class="exp-org">Self-employed</p>
+      <ul class="exp-points"><li>Completed academic and freelance programming tasks for classmates</li><li>Sole developer of group projects that became ZolTrack, MediSched, C’est Délicieux and Registrix</li><li>Built and deployed web and desktop applications end to end</li></ul>
+    </article>
+  </div>
+
+  <p class="eyebrow other-label">Other experience</p>
+  <ul class="exp-other">
+    <li class="reveal"><strong>Trained Chat Support Specialist</strong><span>Online communication and persuasive chatting for sales and support</span><em class="mono">Communication</em></li>
+    <li class="reveal"><strong>Digital Product Seller · Raket.ph</strong><span>Created and marketed downloadable templates, eBooks and resources</span><em class="mono">Product &amp; marketing</em></li>
+    <li class="reveal"><strong>TikTok Affiliate Marketer</strong><span>Promoted affiliate products through engaging TikTok content</span><em class="mono">Content</em></li>
+    <li class="reveal"><strong>Buy &amp; Sell</strong><span>Bought and resold products online and offline</span><em class="mono">Entrepreneurship</em></li>
+    <li class="reveal"><strong>Lalamove Rider</strong><span>Delivered goods promptly with strong time management and customer service</span><em class="mono">Reliability</em></li>
+  </ul>
+</section>
+
 <section id="credentials" class="section wrap">
   <p class="eyebrow">Recognition &amp; training</p>
   <h2 class="type-title" data-type>Training &amp; Certificates</h2>
-  <p class="muted lead-sm">The experience and learning behind my work.</p>
+  <p class="muted lead-sm">Certifications, courses and seminars behind my work. Select any certificate to view it.</p>
 
-  <div class="timeline">
-    <article class="tl-row reveal">
-      <button class="tl-media" type="button" data-lightbox="assets/ojt-certificate.webp" data-caption="Department of Agriculture · OJT Certificate of Completion"><img src="assets/ojt-certificate.webp" width="1903" height="1280" alt="Department of Agriculture certificate for completing 300 hours of on-the-job training" loading="lazy"></button>
-      <div class="tl-text">
-        <div class="tl-head"><h3>On-the-Job Training</h3><span class="mono small">Jul 27 — Nov 7, 2025</span></div>
-        <p class="tl-org">Department of Agriculture · Information and Communications Technology Service</p>
-        <p class="muted">Completed 300 hours of on-the-job training providing telephone and internet connectivity support, coding and server-related assistance.</p>
-        <button class="cert-link mono" type="button" data-lightbox="assets/ojt-certificate.webp" data-caption="Department of Agriculture · OJT Certificate of Completion">Certificate of completion ↗</button>
-      </div>
-    </article>
-    <article class="tl-row reverse reveal">
-      <button class="tl-media" type="button" data-lightbox="assets/freecodecamp-certificate.webp" data-caption="freeCodeCamp · JavaScript Algorithms & Data Structures"><img src="assets/freecodecamp-certificate.webp" width="1000" height="681" alt="freeCodeCamp JavaScript Algorithms and Data Structures certificate awarded to Jomari Candido" loading="lazy"></button>
-      <div class="tl-text">
-        <div class="tl-head"><h3>JavaScript Algorithms &amp; Data Structures</h3><span class="mono small">December 2023</span></div>
-        <p class="tl-org">freeCodeCamp</p>
-        <p class="muted">Self-paced certification covering JavaScript fundamentals, algorithm scripting, data structures and functional and object-oriented programming.</p>
-        <button class="cert-link mono" type="button" data-lightbox="assets/freecodecamp-certificate.webp" data-caption="freeCodeCamp · JavaScript Algorithms & Data Structures">Certificate ↗</button>
-      </div>
-    </article>
-    <article class="tl-row reveal no-media">
-      <div class="tl-text">
-        <div class="tl-head"><h3>Bachelor of Science in Computer Science</h3><span class="mono small">2022 — 2026</span></div>
-        <p class="tl-org">St. Clare College of Caloocan City</p>
-        <p class="muted">Graduated 2026. Sole developer of academic group projects that became ZolTrack, MediSched, C’est Délicieux and Registrix.</p>
-      </div>
-    </article>
+  <div class="awards">
+    <div class="collage reveal" aria-label="Certificates">
+      <button class="c-item c1" type="button" data-lightbox="assets/ojt-certificate.webp" data-caption="Department of Agriculture · OJT Certificate of Completion · 2025"><img src="assets/ojt-certificate.webp" width="1903" height="1280" alt="Department of Agriculture certificate for completing 300 hours of on-the-job training" loading="lazy"></button>
+      <button class="c-item c2" type="button" data-lightbox="assets/freecodecamp-certificate.webp" data-caption="freeCodeCamp · JavaScript Algorithms & Data Structures · 2023"><img src="assets/freecodecamp-certificate.webp" width="1000" height="681" alt="freeCodeCamp JavaScript Algorithms and Data Structures certificate awarded to Jomari Candido" loading="lazy"></button>
+      <button class="c-item c3" type="button" data-lightbox="assets/certificates/tesda-intro-css.webp" data-caption="TESDA Online Program · Introduction to CSS · March 6, 2023"><img src="assets/certificates/tesda-intro-css.webp" width="912" height="628" alt="TESDA certificate of completion for the Introduction to CSS course" loading="lazy"></button>
+      <button class="c-item c4" type="button" data-lightbox="assets/certificates/bscs-seminar-participation.webp" data-caption="St. Clare College of Caloocan · BSCS Seminar, Microsoft Philippines and DOST tour · November 19, 2024"><img src="assets/certificates/bscs-seminar-participation.webp" width="1179" height="866" alt="St. Clare College certificate of participation in the BSCS seminar, Microsoft Philippines facility tour and DOST exhibit tour" loading="lazy"></button>
+      <button class="c-item c5" type="button" data-lightbox="assets/certificates/cyber-security.webp" data-caption="Cyber Security seminar · Splash Island, Biñan, Laguna · November 19, 2024"><img src="assets/certificates/cyber-security.webp" width="1179" height="920" alt="Certificate of attendance for the Cyber Security seminar" loading="lazy"></button>
+      <button class="c-item c6" type="button" data-lightbox="assets/certificates/generative-ai-vr.webp" data-caption="Institutional seminar “Generative AI in Virtual Reality” · Lubao, Pampanga · April 23, 2024"><img src="assets/certificates/generative-ai-vr.webp" width="1179" height="893" alt="Certificate of participation for the institutional seminar Generative AI in Virtual Reality" loading="lazy"></button>
+      <button class="c-item c7" type="button" data-lightbox="assets/certificates/bscs-seminar-attendance.webp" data-caption="OJR Travel & Event Management · BSCS Seminar and tours · November 19, 2024"><img src="assets/certificates/bscs-seminar-attendance.webp" width="1179" height="880" alt="Certificate of attendance for the BSCS seminar, Microsoft Philippines facility tour and DOST exhibit tour" loading="lazy"></button>
+    </div>
+    <div class="award-cards">
+      <button class="award-card reveal" type="button" data-lightbox="assets/ojt-certificate.webp" data-caption="Department of Agriculture · OJT Certificate of Completion · 2025"><span class="aw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span><span class="aw-text"><strong>300-hour OJT</strong><small>Department of Agriculture · 2025</small></span><span class="aw-arrow" aria-hidden="true">↗</span></button>
+      <button class="award-card reveal" type="button" data-lightbox="assets/freecodecamp-certificate.webp" data-caption="freeCodeCamp · JavaScript Algorithms & Data Structures · 2023"><span class="aw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg></span><span class="aw-text"><strong>JavaScript Algorithms &amp; Data Structures</strong><small>freeCodeCamp · 2023</small></span><span class="aw-arrow" aria-hidden="true">↗</span></button>
+      <button class="award-card reveal" type="button" data-lightbox="assets/certificates/tesda-intro-css.webp" data-caption="TESDA Online Program · Introduction to CSS · March 6, 2023"><span class="aw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM20 19v2H6"/></svg></span><span class="aw-text"><strong>Introduction to CSS</strong><small>TESDA Online Program · 2023</small></span><span class="aw-arrow" aria-hidden="true">↗</span></button>
+      <div class="award-card static reveal"><span class="aw-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span><span class="aw-text"><strong>BS Computer Science</strong><small>St. Clare College of Caloocan City · 2026</small></span></div>
+    </div>
   </div>
 
   <div class="seminars">
@@ -330,10 +373,10 @@
       <span class="mono small muted">2022 — 2024</span>
     </div>
     <ol class="seminar-list">
-      <li class="reveal"><time class="mono" datetime="2024-11">Nov 2024</time><div><h3>Cyber Security Seminar</h3><span class="seminar-tag mono">Seminar</span></div></li>
-      <li class="reveal"><time class="mono" datetime="2024-11">Nov 2024</time><div><h3>BSCS Seminar, Microsoft Philippines Facility Tour, and Department of Science and Technology Exhibit and Familiarization Tour</h3><span class="seminar-tag mono">Seminar · Industry tour</span></div></li>
+      <li class="reveal"><time class="mono" datetime="2024-11-19">Nov 2024</time><div><h3>Cyber Security Seminar</h3><p class="seminar-place">Splash Island, Biñan, Laguna</p><span class="seminar-tag mono">Seminar</span><div class="seminar-certs"><button class="cert-link mono" type="button" data-lightbox="assets/certificates/cyber-security.webp" data-caption="Cyber Security seminar · Splash Island, Biñan, Laguna · November 19, 2024">Certificate of attendance ↗</button></div></div></li>
+      <li class="reveal"><time class="mono" datetime="2024-11-19">Nov 2024</time><div><h3>BSCS Seminar, Microsoft Philippines Facility Tour, and Department of Science and Technology Exhibits &amp; Familiarization Tour</h3><span class="seminar-tag mono">Seminar · Industry tour</span><div class="seminar-certs"><button class="cert-link mono" type="button" data-lightbox="assets/certificates/bscs-seminar-participation.webp" data-caption="St. Clare College of Caloocan · BSCS Seminar, Microsoft Philippines and DOST tour · November 19, 2024">Certificate of participation ↗</button><button class="cert-link mono" type="button" data-lightbox="assets/certificates/bscs-seminar-attendance.webp" data-caption="OJR Travel & Event Management · BSCS Seminar and tours · November 19, 2024">Certificate of attendance ↗</button></div></div></li>
       <li class="reveal"><time class="mono" datetime="2024-10">Oct 2024</time><div><h3>St. Clare College Investiture of Junior Student Professionals</h3><span class="seminar-tag mono">Investiture</span></div></li>
-      <li class="reveal"><time class="mono" datetime="2024-04">Apr 2024</time><div><h3>Institutional Seminar: “Generative AI in Virtual Reality”</h3><span class="seminar-tag mono">Seminar</span></div></li>
+      <li class="reveal"><time class="mono" datetime="2024-04-23">Apr 2024</time><div><h3>Institutional Seminar: “Generative AI in Virtual Reality”</h3><p class="seminar-place">Hacienda Gracia Resort and Hotel, Lubao, Pampanga</p><span class="seminar-tag mono">Seminar</span><div class="seminar-certs"><button class="cert-link mono" type="button" data-lightbox="assets/certificates/generative-ai-vr.webp" data-caption="Institutional seminar “Generative AI in Virtual Reality” · Lubao, Pampanga · April 23, 2024">Certificate of participation ↗</button></div></div></li>
       <li class="reveal"><time class="mono" datetime="2023-09">Sep 2023</time><div><h3>International Convention and Launching of Life Skills, Education 5.0 and Digital Citizenship</h3><span class="seminar-tag mono">Convention</span></div></li>
       <li class="reveal"><time class="mono" datetime="2022-11">Nov 2022</time><div><h3>Artificial Intelligence and Ethical Hacking Seminar Workshop</h3><span class="seminar-tag mono">Seminar · Workshop</span></div></li>
     </ol>

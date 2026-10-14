@@ -147,7 +147,7 @@
     const tech = $$('[data-tech] li', tpl);
     const shot = $('img', tpl);
     $('#pm-title').textContent = $('h3', row).textContent;
-    $('#pm-body').replaceChildren(...[...tpl.children].filter(el => el.matches('p:not([data-links])')).map(p => p.cloneNode(true)));
+    $('#pm-body').replaceChildren(...[...tpl.children].filter(el => el.matches('p:not([data-links]), .case')).map(p => p.cloneNode(true)));
     $('#pm-tech-count').textContent = tech.length;
     $('#pm-feature-count').textContent = features.length;
     $('#pm-tech').replaceChildren(...tech.map(li => li.cloneNode(true)));

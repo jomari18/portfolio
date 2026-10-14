@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jomari M. Candido — Résumé</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  @page{size:A4;margin:14mm 14mm 14mm}
+  *{box-sizing:border-box}
+  body{margin:0;font:400 9.6pt/1.45 Inter,Arial,sans-serif;color:#1a1c20}
+  a{color:inherit;text-decoration:none}
+  header{display:grid;grid-template-columns:86px 1fr;gap:18px;align-items:center;padding-bottom:12px;border-bottom:2px solid #1a1c20}
+  header img{width:86px;height:86px;border-radius:10px;object-fit:cover;object-position:50% 18%}
+  h1{margin:0;font:800 22pt/1.05 Inter;letter-spacing:-.5pt}
+  .role{margin:3px 0 7px;font:600 10.5pt Inter;color:#4a4f57}
+  .contacts{display:flex;flex-wrap:wrap;gap:3px 14px;font-size:8.6pt;color:#33373d}
+  h2{margin:14px 0 6px;font:800 9pt Inter;letter-spacing:1.6pt;text-transform:uppercase;color:#1a1c20;border-bottom:1px solid #cfd2d6;padding-bottom:3px}
+  p{margin:0 0 4px}
+  .summary{margin-top:10px;font-size:9.6pt}
+  .item{margin-bottom:7px;break-inside:avoid}
+  .row{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+  .row strong{font-weight:700;font-size:10pt}
+  .meta{font-size:8.6pt;color:#5b6068;white-space:nowrap}
+  .sub{font-size:8.8pt;color:#4a4f57;margin-bottom:2px}
+  ul{margin:2px 0 0;padding-left:15px}
+  li{margin-bottom:1.5px}
+  .skills{display:grid;grid-template-columns:118px 1fr;gap:2px 10px;font-size:9.2pt}
+  .skills b{font-weight:700}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+  .compact li{margin-bottom:2px}
+  .tag{font-size:8.4pt;color:#5b6068}
+</style>
+</head>
+<body>
+<header>
+  <img src="../assets/portrait.webp" alt="">
+  <div>
+    <h1>Jomari M. Candido</h1>
+    <p class="role">Full-Stack Web Developer · BS Computer Science Graduate</p>
+    <div class="contacts">
+      <span>jomaricandido18@gmail.com</span><span>0910 130 5953</span><span>Philippines</span>
+      <span>jomaricandido.netlify.app</span><span>github.com/jomari18</span><span>linkedin.com/in/jomari-candido-26935a28a</span>
+    </div>
+  </div>
+</header>
+
+<p class="summary">Computer Science graduate and full-stack web developer with five live web applications built with React, TypeScript, JavaScript, Supabase and PostgreSQL. Experienced with authentication and email OTP flows, row-level security, transactional database functions, responsive interfaces and automated testing. Completed 300 hours of IT support training at the Department of Agriculture.</p>
+
+<h2>Projects</h2>
+<div class="item">
+  <div class="row"><strong>MediSched — Clinic appointment scheduling</strong><span class="meta">mymedisched.netlify.app</span></div>
+  <p class="sub">JavaScript · Supabase · PostgreSQL · Edge Functions · Netlify</p>
+  <ul><li>Patient booking with live slots, history and cancellation; staff workspace with QR check-in, consultation progress and analytics.</li>
+  <li>Prevented double bookings with a PostgreSQL exclusion constraint and idempotent request IDs; 59 unit tests plus database integration tests.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><strong>Registrix — Student records &amp; grading</strong><span class="meta">registrix.netlify.app</span></div>
+  <p class="sub">React · TypeScript · Supabase · PostgreSQL</p>
+  <ul><li>Rebuilt a C# Windows Forms and Access project for the web with role-based access for administrators, registrars and teachers.</li>
+  <li>Server-calculated General Average with Incomplete handling and stale-edit protection; 53 unit tests and Playwright browser audits.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><strong>C’est Délicieux — Restaurant ordering (web &amp; Android)</strong><span class="meta">cestdelicieux.netlify.app</span></div>
+  <p class="sub">React · TypeScript · Supabase · Capacitor</p>
+  <ul><li>Menu search, persistent cart, pickup or delivery with distance-based fees, staff order dashboard and an Android build.</li>
+  <li>Transactional order placement with price snapshots and safe retries; 79 automated tests.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><strong>ZolTrack — Maintenance &amp; asset management</strong><span class="meta">zoltrack.netlify.app</span></div>
+  <p class="sub">JavaScript · Supabase · PostgreSQL · Netlify</p>
+  <ul><li>Role-based maintenance requests, inventory, borrowing approvals, notifications, audit log, charts and CSV reports.</li>
+  <li>Atomic job completion with inventory deduction, server-side role checks and private document storage.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><strong>ZolNutrition — Meal &amp; nutrition tracker (web &amp; Android)</strong><span class="meta">zolnutrition.netlify.app</span></div>
+  <p class="sub">React · Vite · Supabase · Capacitor</p>
+  <ul><li>Meal logging, saved meals, training and rest-day targets, seven-day review and weight trends; 37 automated tests.</li></ul>
+</div>
+<p class="tag">All five apps include email OTP sign-up and code-based password recovery. Source code: github.com/jomari18</p>
+
+<h2>Experience</h2>
+<div class="item">
+  <div class="row"><strong>IT Support Intern (On-the-Job Training)</strong><span class="meta">Jul 2025 — Nov 2025</span></div>
+  <p class="sub">Department of Agriculture · Information and Communications Technology Service, Quezon City</p>
+  <ul><li>Completed 300 hours supporting telephone and internet connectivity, coding and server-related work.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><strong>Freelance Programming Projects</strong><span class="meta">Self-employed</span></div>
+  <ul><li>Completed academic and freelance programming tasks for classmates; sole developer of the group projects that became ZolTrack, MediSched, C’est Délicieux and Registrix.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><strong>Other experience</strong></div>
+  <ul class="compact">
+    <li><b>Trained Chat Support Specialist</b> — online communication and persuasive chatting for sales and support.</li>
+    <li><b>Digital Product Seller, Raket.ph</b> — created and marketed downloadable templates, eBooks and resources.</li>
+    <li><b>TikTok Affiliate Marketer</b> — promoted affiliate products through engaging TikTok content.</li>
+    <li><b>Buy &amp; Sell</b> — bought and resold products online and offline.</li>
+    <li><b>Lalamove Rider</b> — delivered goods promptly with strong time management and customer service.</li>
+  </ul>
+</div>
+
+<h2>Skills</h2>
+<div class="skills">
+  <b>Frontend</b><span>JavaScript, TypeScript, HTML, CSS, React, Vite, responsive and accessible UI</span>
+  <b>Backend &amp; data</b><span>Supabase (Auth, row-level security, RPC functions, Edge Functions, Storage), PostgreSQL, Firebase/Firestore, Microsoft Access</span>
+  <b>Desktop &amp; mobile</b><span>C#, .NET Windows Forms, Java (coursework), Capacitor for Android</span>
+  <b>Workflows</b><span>Email OTP verification and password recovery, form validation, CRUD, role-based access</span>
+  <b>Tools &amp; testing</b><span>Git, GitHub, Netlify, Playwright, Vitest and Node test runner</span>
+  <b>IT support</b><span>Network and telephone connectivity, troubleshooting, server-related assistance</span>
+</div>
+
+<h2>Education</h2>
+<div class="two">
+  <div class="item"><div class="row"><strong>BS Computer Science</strong><span class="meta">2022 — 2026</span></div><p class="sub">St. Clare College of Caloocan City</p></div>
+  <div class="item"><div class="row"><strong>Senior High School, ICT Strand</strong><span class="meta">2020 — 2022</span></div><p class="sub">St. Clare College of Caloocan City</p></div>
+  <div class="item"><div class="row"><strong>Junior High School</strong><span class="meta">2016 — 2020</span></div><p class="sub">Dr. Rosita B. Britanico Academy</p></div>
+  <div class="item"><div class="row"><strong>Elementary</strong><span class="meta">2010 — 2016</span></div><p class="sub">Edosma Academy</p></div>
+</div>
+
+<h2>Certifications</h2>
+<ul class="compact">
+  <li><b>On-the-Job Training Certificate of Completion (300 hours)</b> — Department of Agriculture, issued January 2026</li>
+  <li><b>JavaScript Algorithms and Data Structures</b> — freeCodeCamp, December 2023</li>
+  <li><b>Introduction to CSS</b> — TESDA Online Program, March 2023</li>
+</ul>
+
+<h2>Seminars &amp; Events Attended</h2>
+<ul class="compact">
+  <li><b>Cyber Security Seminar</b> — Splash Island, Biñan, Laguna · November 2024</li>
+  <li><b>BSCS Seminar, Microsoft Philippines Facility Tour, and DOST Exhibits &amp; Familiarization Tour</b> · November 2024</li>
+  <li><b>St. Clare College Investiture of Junior Student Professionals</b> · October 2024</li>
+  <li><b>Institutional Seminar: “Generative AI in Virtual Reality”</b> — Lubao, Pampanga · April 2024</li>
+  <li><b>International Convention and Launching of Life Skills, Education 5.0 and Digital Citizenship</b> · September 2023</li>
+  <li><b>Artificial Intelligence and Ethical Hacking Seminar Workshop</b> · November 2022</li>
+</ul>
+</body>
+</html>

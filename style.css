@@ -229,21 +229,49 @@ ul,dl,dd{margin:0;padding:0;list-style:none}
 .badge figcaption span{font:500 10px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#55585e}
 .drag-hint{position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin:0}
 
-/* Credentials timeline */
-.lead-sm{margin-bottom:46px}
-.timeline{display:grid;gap:56px}
-.tl-row{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-.tl-row.reverse .tl-media{order:2}
-.tl-row.no-media{grid-template-columns:1fr;max-width:640px}
-.tl-media{padding:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:transform .4s var(--ease)}
-.tl-media:hover{transform:translateY(-4px) rotate(-.4deg)}
-.tl-media img{width:100%;aspect-ratio:3/2;object-fit:cover}
-.tl-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px}
-.tl-head h3{font:700 20px/1.3 var(--font);text-transform:uppercase;letter-spacing:.01em}
-.tl-head span{color:var(--dim)}
-.tl-org{font-weight:600;font-size:15px;margin-bottom:10px}
-.cert-link{border:0;background:none;padding:0;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+/* Experience */
+.lead-sm{margin-bottom:40px}
+.exp-main{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.exp-card{padding:28px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+.exp-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.exp-badge{font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--invert);color:var(--on-invert)}
+.exp-card h3{font:800 22px/1.2 var(--font);letter-spacing:-.02em;margin-bottom:6px}
+.exp-org{font-size:14px;color:var(--muted);margin-bottom:18px}
+.exp-points li{position:relative;padding-left:18px;margin-bottom:8px;font-size:15px}
+.exp-points li::before{content:"";position:absolute;left:2px;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--text)}
+.other-label{margin-top:46px}
+.exp-other{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.exp-other li{display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.exp-other strong{font-size:14px;line-height:1.35}
+.exp-other span{font-size:13px;color:var(--muted);line-height:1.5;flex:1}
+.exp-other em{font-style:normal;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+
+/* Credentials: certificate collage and cards */
+.awards{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.collage{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:92px;gap:12px}
+.c-item{padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:transform .4s var(--ease),z-index 0s;position:relative}
+.c-item img{width:100%;height:100%;object-fit:cover}
+.c-item:hover{transform:scale(1.06) rotate(-1deg);z-index:2}
+.c1{grid-column:1/4;grid-row:1/3}
+.c2{grid-column:4/7;grid-row:1/3;transform:translateY(16px)}
+.c3{grid-column:1/3;grid-row:3/5}
+.c4{grid-column:3/5;grid-row:3/5;transform:translateY(-10px)}
+.c5{grid-column:5/7;grid-row:3/5;transform:translateY(16px)}
+.c6{grid-column:2/4;grid-row:5/7}
+.c7{grid-column:4/6;grid-row:5/7;transform:translateY(12px)}
+.award-cards{display:grid;gap:12px}
+.award-card{display:flex;align-items:center;gap:14px;width:100%;padding:16px 18px;text-align:left;border-radius:16px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .3s var(--ease),border-color .3s}
+button.award-card:hover{transform:translateX(4px);border-color:var(--line-2)}
+.aw-icon{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:11px;background:var(--card-2);border:1px solid var(--line)}
+.aw-icon svg{width:18px;height:18px}
+.aw-text{display:flex;flex-direction:column;flex:1;min-width:0}
+.aw-text strong{font-size:15px;font-weight:600;line-height:1.35}
+.aw-text small{font-size:12px;color:var(--muted)}
+.aw-arrow{color:var(--dim)}
+.cert-link{border:0;background:none;padding:0;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--text)}
 .cert-link:hover{text-decoration:underline;text-underline-offset:4px}
+.seminar-place{font-size:13px;color:var(--muted);margin:-4px 0 8px}
+.seminar-certs{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px}
 
 /* Seminars */
 .seminars{margin-top:80px}
@@ -315,6 +343,9 @@ ul,dl,dd{margin:0;padding:0;list-style:none}
 .pm-title{font:800 clamp(28px,4vw,46px)/1.05 var(--font);letter-spacing:-.04em;margin-bottom:16px}
 .pm-rule{width:60px;height:2px;background:linear-gradient(90deg,var(--muted),transparent);margin-bottom:22px}
 #pm-body p{color:var(--muted)}
+.case{position:relative;padding:0 0 4px 18px;margin-bottom:14px;border-left:2px solid var(--line-2)}
+.case h4{margin:0 0 4px;font:600 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--text)}
+.case p{margin:0;font-size:15px}
 .detail-kicker{font:500 11px var(--mono)!important;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)!important}
 .pm-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 18px}
 .pm-stats div{display:flex;flex-direction:column;padding:16px 20px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
@@ -343,10 +374,9 @@ ul,dl,dd{margin:0;padding:0;list-style:none}
   .nav-links a{padding:14px 12px;font-size:13px}
   .nav-links a::after{display:none}
   .menu-btn{display:inline-grid}
-  .skills,.about,.contact{grid-template-columns:1fr}
+  .skills,.about,.contact,.awards{grid-template-columns:1fr}
+  .exp-other{grid-template-columns:repeat(3,1fr)}
   .lanyard-zone{order:-1;height:600px;margin-top:-60px}
-  .tl-row{grid-template-columns:1fr;gap:22px}
-  .tl-row.reverse .tl-media{order:0}
 }
 @media (max-width:760px){
   .wrap{width:calc(100% - 32px)}
@@ -366,7 +396,8 @@ ul,dl,dd{margin:0;padding:0;list-style:none}
   .cf-card{transform:translateX(calc(-50% + var(--offset,0) * 60%)) translateZ(calc(var(--depth,0) * -1px)) rotateY(var(--angle,0deg)) scale(var(--scale,1))}
   .project-row{grid-template-columns:1fr;gap:10px}
   .row-num{padding:0}
-  .cap-cards{grid-template-columns:1fr}
+  .cap-cards,.exp-main,.exp-other{grid-template-columns:1fr}
+  .collage{grid-auto-rows:58px;gap:8px}
   .seminar-list{grid-template-columns:1fr}
   .seminar-list li{grid-template-columns:72px 1fr;gap:12px}
   .tool-grid{grid-template-columns:repeat(5,1fr)}
