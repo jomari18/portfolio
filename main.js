@@ -181,10 +181,86 @@
       video.setAttribute('aria-label', `Walkthrough of ${$('h3', row).textContent}`);
       if (reduced) setPlayLabel(false); else video.play().then(() => setPlayLabel(true), () => setPlayLabel(false));
     }
+    // Case-study side menu built from the section headings
+    const sections = [...$$('#pm-body .case'), $('#pm-features-block')];
+    const toc = $('#pm-toc');
+    toc.replaceChildren(...sections.map((section, i) => {
+      section.id = `pm-sec-${i}`;
+      const link = document.createElement('a');
+      link.href = `#pm-sec-${i}`;
+      const label = $('h4, h3', section).textContent.replace(/^The /i, '');
+      link.textContent = label.charAt(0).toUpperCase() + label.slice(1);
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        tocLock = performance.now() + 900;
+        $$('#pm-toc a').forEach(a => a.classList.toggle('active', a === link));
+        const inner = $('.modal-inner', modal);
+        inner.scrollTo({top: section.getBoundingClientRect().top - inner.getBoundingClientRect().top + inner.scrollTop - 24, behavior: reduced ? 'auto' : 'smooth'});
+      });
+      return link;
+    }));
     modal.showModal();
     $('.modal-inner', modal).scrollTop = 0;
+    syncToc();
   };
+  let tocLock = 0;
+  const syncToc = () => {
+    if (performance.now() < tocLock) return;
+    const inner = $('.modal-inner', modal), links = $$('#pm-toc a');
+    if (!links.length) return;
+    const limit = inner.getBoundingClientRect().top + 150;
+    // Case sections are in reading order; the features box (last link) is active only at the end.
+    let active = 0;
+    links.slice(0, -1).forEach((link, i) => { const target = $(link.getAttribute('href'), modal); if (target && target.getBoundingClientRect().top <= limit) active = i; });
+    if (inner.scrollTop + inner.clientHeight >= inner.scrollHeight - 8) active = links.length - 1;
+    links.forEach((link, i) => link.classList.toggle('active', i === active));
+  };
+  $('.modal-inner', modal).addEventListener('scroll', syncToc, {passive: true});
   rows.forEach(row => $('[data-details]', row).addEventListener('click', () => openProject(row)));
+
+  // Hero project deck: three stacked cards that shuffle; the top card opens its details
+  const deckStack = $('#deck-stack');
+  const deckCards = rows.map((row, i) => {
+    const shot = $('img', $('template', row).content);
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'deck-card';
+    card.innerHTML = `<img alt="" width="1600" height="800"><span class="deck-label"></span><strong></strong><small></small>`;
+    $('img', card).src = shot.getAttribute('src');
+    $('.deck-label', card).textContent = $('.row-meta', row).textContent.split('·')[0].trim();
+    $('strong', card).textContent = $('h3', row).textContent;
+    $('small', card).textContent = $('.row-meta', row).textContent.split('·')[1]?.trim() || '';
+    card.setAttribute('aria-label', `Open ${$('h3', row).textContent} details`);
+    card.addEventListener('click', () => { if (card.dataset.pos === '0') openProject(row); });
+    deckStack.append(card);
+    return card;
+  });
+  let deckTop = 0, deckTimer = 0;
+  const layoutDeck = (outgoing = -1) => {
+    deckCards.forEach((card, i) => {
+      const pos = (i - deckTop + deckCards.length) % deckCards.length;
+      card.dataset.pos = i === outgoing ? 'out' : pos < 3 ? String(pos) : 'hidden';
+      card.style.zIndex = String(10 - pos);
+      card.tabIndex = pos === 0 ? 0 : -1;
+      card.setAttribute('aria-hidden', String(pos !== 0));
+    });
+  };
+  const shuffle = () => {
+    const out = deckTop;
+    deckTop = (deckTop + 1) % deckCards.length;
+    layoutDeck(out);
+    setTimeout(() => layoutDeck(), reduced ? 0 : 450);
+  };
+  layoutDeck();
+  $('#deck-shuffle').addEventListener('click', shuffle);
+  const deck = $('#deck');
+  const startDeck = () => { if (!reduced && !deckTimer) deckTimer = setInterval(shuffle, 4200); };
+  const stopDeck = () => { clearInterval(deckTimer); deckTimer = 0; };
+  deck.addEventListener('pointerenter', stopDeck);
+  deck.addEventListener('pointerleave', startDeck);
+  deck.addEventListener('focusin', stopDeck);
+  deck.addEventListener('focusout', startDeck);
+  new IntersectionObserver(([entry]) => (entry.isIntersecting ? startDeck() : stopDeck())).observe(deck);
 
   // Work gallery coverflow
   const cards = $$('.cf-card');
@@ -319,6 +395,18 @@
   $('#mw-close').addEventListener('click', closeWindow);
   minButton.addEventListener('click', () => setMinimized(!win.classList.contains('minimized')));
   win.addEventListener('keydown', event => { if (event.key === 'Escape') closeWindow(); });
+
+  // Copy email pill
+  $('#copy-email').addEventListener('click', async () => {
+    const copyStatus = $('#copy-status');
+    try {
+      await navigator.clipboard.writeText('jomaricandido18@gmail.com');
+      copyStatus.textContent = 'Copied!';
+    } catch (error) {
+      copyStatus.textContent = 'Copy unavailable';
+    }
+    setTimeout(() => { copyStatus.textContent = ''; }, 2500);
+  });
 
   // Contact form (Netlify Forms)
   const form = $('#contact-form');
