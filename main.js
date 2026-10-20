@@ -179,6 +179,7 @@
       if (video.getAttribute('src') !== row.dataset.video) video.src = row.dataset.video;
       video.currentTime = 0;
       video.setAttribute('aria-label', `Walkthrough of ${$('h3', row).textContent}`);
+      $('#pm-tour-note').textContent = row.dataset.videoNote || 'Recorded with test accounts';
       if (reduced) setPlayLabel(false); else video.play().then(() => setPlayLabel(true), () => setPlayLabel(false));
     }
     // Case-study side menu built from the section headings
@@ -291,10 +292,11 @@
       const d = Math.abs(offset);
       card.style.setProperty('--offset', offset);
       card.style.setProperty('--angle', `${offset * -24}deg`);
-      card.style.setProperty('--scale', [1, .78, .6][d]);
+      // With an even number of cards, the one straight behind (d = 3) is hidden.
+      card.style.setProperty('--scale', [1, .78, .6, .5][d]);
       card.style.setProperty('--depth', d * 120);
-      card.style.setProperty('--opacity', [1, .85, .45][d]);
-      card.style.setProperty('--bright', [1, .7, .5][d]);
+      card.style.setProperty('--opacity', [1, .85, .45, 0][d]);
+      card.style.setProperty('--bright', [1, .7, .5, .4][d]);
       card.style.setProperty('--layer', 10 - d);
       card.setAttribute('aria-current', String(i === current));
       card.tabIndex = i === current ? 0 : -1;
