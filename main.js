@@ -292,7 +292,7 @@
       const d = Math.abs(offset);
       card.style.setProperty('--offset', offset);
       card.style.setProperty('--angle', `${offset * -24}deg`);
-      // With an even number of cards, the one straight behind (d = 3) is hidden.
+      // From six cards on, the ones three steps away (d = 3) sit behind and are hidden.
       card.style.setProperty('--scale', [1, .78, .6, .5][d]);
       card.style.setProperty('--depth', d * 120);
       card.style.setProperty('--opacity', [1, .85, .45, 0][d]);
