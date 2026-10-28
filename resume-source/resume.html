@@ -44,9 +44,14 @@
   </div>
 </header>
 
-<p class="summary">Computer Science graduate and full-stack web developer with seven live web applications built with React, Next.js, TypeScript, Express, Supabase and PostgreSQL. Experienced with REST APIs, authentication and email OTP flows, row-level security, transactional database functions, offline-first PWAs, Docker, responsive interfaces and automated testing. Completed 300 hours of IT support training at the Department of Agriculture.</p>
+<p class="summary">Computer Science graduate and full-stack web developer with eight live web applications built with React, Next.js, TypeScript, NestJS, Express, Supabase and PostgreSQL. Experienced with REST APIs, real-time updates with Socket.io, authentication and email OTP flows, row-level security, transactional database functions, offline-first PWAs, Docker, responsive interfaces and automated testing. Completed 300 hours of IT support training at the Department of Agriculture.</p>
 
 <h2>Projects</h2>
+<div class="item">
+  <div class="row"><strong>B.Queue — Barangay document requests &amp; live queue</strong><span class="meta">bqueue.netlify.app</span></div>
+  <p class="sub">Next.js · TypeScript · NestJS · Socket.io · Prisma · PostgreSQL · Docker</p>
+  <ul><li>Online requests with e-signature approval, a phone and kiosk queue with “your turn” alerts, a hall TV that calls numbers aloud, and QR document checks; own NestJS API with Socket.io and versioned resync; 300 unit and API tests plus 9 Playwright end-to-end tests.</li></ul>
+</div>
 <div class="item">
   <div class="row"><strong>ZariZari — Sari-sari store POS &amp; inventory</strong><span class="meta">zarizari.netlify.app</span></div>
   <p class="sub">React · TypeScript · Express · Prisma · PostgreSQL · Docker</p>
@@ -56,8 +61,7 @@
 <div class="item">
   <div class="row"><strong>C’est Délicieux — Restaurant ordering (web &amp; Android)</strong><span class="meta">cestdelicieux.netlify.app</span></div>
   <p class="sub">React · TypeScript · Supabase · Capacitor</p>
-  <ul><li>Menu search, persistent cart, pickup or delivery with distance-based fees, staff order dashboard and an Android build.</li>
-  <li>Transactional order placement with price snapshots and safe retries; 79 automated tests.</li></ul>
+  <ul><li>Menu, cart, pickup or delivery with distance-based fees, a staff order dashboard and an Android build; transactional orders with price snapshots and safe retries; 79 automated tests.</li></ul>
 </div>
 <div class="item">
   <div class="row"><strong>ZolNutrition — Meal &amp; nutrition tracker (web &amp; Android)</strong><span class="meta">zolnutrition.netlify.app</span></div>
@@ -67,26 +71,22 @@
 <div class="item">
   <div class="row"><strong>Registrix — Student records &amp; grading</strong><span class="meta">registrix.netlify.app</span></div>
   <p class="sub">React · TypeScript · Supabase · PostgreSQL</p>
-  <ul><li>Rebuilt a C# Windows Forms and Access project for the web with role-based access for administrators, registrars and teachers.</li>
-  <li>Server-calculated General Average with Incomplete handling and stale-edit protection; 53 unit tests and Playwright browser audits.</li></ul>
+  <ul><li>Rebuilt a C# Windows Forms and Access project for the web with roles for administrators, registrars and teachers and a server-calculated General Average; 53 unit tests and Playwright audits.</li></ul>
 </div>
 <div class="item">
   <div class="row"><strong>MediSched — Clinic appointment scheduling</strong><span class="meta">mymedisched.netlify.app</span></div>
   <p class="sub">JavaScript · Supabase · PostgreSQL · Edge Functions · Netlify</p>
-  <ul><li>Patient booking with live slots, history and cancellation; staff workspace with QR check-in, consultation progress and analytics.</li>
-  <li>Prevented double bookings with a PostgreSQL exclusion constraint and idempotent request IDs; 59 unit tests plus database integration tests.</li></ul>
+  <ul><li>Patient booking with live slots and a staff workspace with QR check-in; double bookings prevented by a PostgreSQL exclusion constraint and idempotent request IDs; 59 unit tests plus database tests.</li></ul>
 </div>
 <div class="item">
   <div class="row"><strong>ZolTrack — Maintenance &amp; asset management</strong><span class="meta">zoltrack.netlify.app</span></div>
   <p class="sub">JavaScript · Supabase · PostgreSQL · Netlify</p>
-  <ul><li>Role-based maintenance requests, inventory, borrowing approvals, notifications, audit log, charts and CSV reports.</li>
-  <li>Atomic job completion with inventory deduction, server-side role checks and private document storage.</li></ul>
+  <ul><li>Role-based maintenance requests, inventory, borrowing approvals, audit log and CSV reports, with atomic job completion and server-side role checks.</li></ul>
 </div>
 <div class="item">
   <div class="row"><strong>ResuMatch — AI resume and job matcher</strong><span class="meta">resumatch-ph.netlify.app</span></div>
   <p class="sub">Next.js · TypeScript · Tailwind CSS · Gemini API · Supabase</p>
-  <ul><li>Scores how well a resume fits a job posting by quoting matching lines from the resume, then drafts a cover letter that only uses facts the resume has.</li>
-  <li>Every quote checked word for word and the score computed by code, not guessed by the AI; 201 automated tests (unit, database and Playwright).</li></ul>
+  <ul><li>Scores a resume against a job posting by quoting its matching lines, checked word for word, and drafts a cover letter from the resume’s facts only; 201 automated tests.</li></ul>
 </div>
 <p class="tag">ZolTrack, ZolNutrition, MediSched, C’est Délicieux and Registrix include email OTP sign-up and code-based password recovery. Source code: github.com/jomari18</p>
 
@@ -114,7 +114,7 @@
 <h2>Skills</h2>
 <div class="skills">
   <b>Frontend</b><span>JavaScript, TypeScript, HTML, CSS, React, Next.js, Tailwind CSS, Vite, Three.js, responsive and accessible UI</span>
-  <b>Backend &amp; data</b><span>Node.js and Express REST APIs, Prisma, PostgreSQL, Supabase (Auth, row-level security, RPC functions, Edge Functions, Storage), Gemini API, Firebase/Firestore, Microsoft Access</span>
+  <b>Backend &amp; data</b><span>Node.js, NestJS and Express REST APIs, Socket.io real-time, Prisma, PostgreSQL, Supabase (Auth, row-level security, RPC functions, Edge Functions, Storage), Gemini API, Firebase/Firestore, Microsoft Access</span>
   <b>Desktop &amp; mobile</b><span>C#, .NET Windows Forms, Java (coursework), Capacitor for Android</span>
   <b>Workflows</b><span>Email OTP verification and password recovery, JWT sessions with refresh tokens, offline sync, form validation, CRUD, role-based access</span>
   <b>Tools &amp; testing</b><span>Git, GitHub, GitHub Actions, Docker, Netlify, Render, Playwright, Vitest and Node test runner</span>

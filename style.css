@@ -180,6 +180,8 @@ ul,dl,dd{margin:0;padding:0;list-style:none}
 .icon[data-icon=express]{--src:url(assets/tech/express.svg)}
 .icon[data-icon=prisma]{--src:url(assets/tech/prisma.svg)}
 .icon[data-icon=docker]{--src:url(assets/tech/docker.svg)}
+.icon[data-icon=nestjs]{--src:url(assets/tech/nestjs.svg)}
+.icon[data-icon=socketdotio]{--src:url(assets/tech/socketdotio.svg)}
 
 /* What I can do */
 .skills{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}

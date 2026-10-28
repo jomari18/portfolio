@@ -292,11 +292,12 @@
       const d = Math.abs(offset);
       card.style.setProperty('--offset', offset);
       card.style.setProperty('--angle', `${offset * -24}deg`);
-      // From six cards on, the ones three steps away (d = 3) sit behind and are hidden.
-      card.style.setProperty('--scale', [1, .78, .6, .5][d]);
-      card.style.setProperty('--depth', d * 120);
-      card.style.setProperty('--opacity', [1, .85, .45, 0][d]);
-      card.style.setProperty('--bright', [1, .7, .5, .4][d]);
+      // From six cards on, the ones three or more steps away (k = 3) sit behind and are hidden.
+      const k = Math.min(d, 3);
+      card.style.setProperty('--scale', [1, .78, .6, .5][k]);
+      card.style.setProperty('--depth', k * 120);
+      card.style.setProperty('--opacity', [1, .85, .45, 0][k]);
+      card.style.setProperty('--bright', [1, .7, .5, .4][k]);
       card.style.setProperty('--layer', 10 - d);
       card.setAttribute('aria-current', String(i === current));
       card.tabIndex = i === current ? 0 : -1;
