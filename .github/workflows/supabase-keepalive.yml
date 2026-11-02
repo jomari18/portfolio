@@ -1,0 +1,32 @@
+# Free Supabase projects pause after 7 days without activity, and a paused project breaks its live demo.
+# This asks each one for a row every 3 days. A red run (GitHub emails the owner) means a project needs restoring.
+# The keys are the publishable ones each site already sends to every browser; 401 still reaches the database.
+name: Supabase keep-alive
+
+on:
+  schedule:
+    - cron: "17 3 */3 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping each project
+        run: |
+          failed=0
+          ping() {
+            status=$(curl -s -o /dev/null -m 30 --retry 2 -w "%{http_code}" -H "apikey: $3" "$2" || true)
+            echo "$1: $status"
+            case "$status" in 2*|3*|401|403|404) ;; *) failed=1 ;; esac
+          }
+          ping "C'est Délicieux" "https://xjcmygnnbkdnetkdsfyq.supabase.co/rest/v1/categories?select=*&limit=1" "sb_publishable_l9Y5dPNv0ruklCoP6wsy3g_mc8M45z6"
+          ping "Registrix" "https://ltrgglgkxhejxzdiqkdt.supabase.co/rest/v1/students?select=*&limit=1" "sb_publishable_D21jFwUpQdze5HrcXBnm5g_ptoTyWM-"
+          ping "MediSched" "https://uoqosdefnaycqfqogirj.supabase.co/rest/v1/appointments?select=*&limit=1" "sb_publishable_ER1pY4FcxTKPEim6-FXhKg_CDDd8HaG"
+          ping "ZolTrack" "https://varnpfurkldmdsnkecos.supabase.co/rest/v1/inventory?select=*&limit=1" "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhcm5wZnVya2xkbWRzbmtlY29zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MjkxMTYsImV4cCI6MjA5MjAwNTExNn0.Q55F4ESFzwB_A0ieFFXZA5Uu7rxvFAYoyq8VcZbhUN8"
+          ping "ZolNutrition" "https://vceaixsnmqlwzddnhrqh.supabase.co/rest/v1/foods?select=*&limit=1" "sb_publishable_6-8kjQ7Qth90g-0ztaHLcA_vlTLJ0O6"
+          ping "ResuMatch" "https://resumatch-ph.netlify.app/r/keepalive000"
+          exit $failed
