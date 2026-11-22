@@ -1,11 +1,12 @@
-# Free Supabase projects pause after 7 days without activity, and a paused project breaks its live demo.
-# This asks each one for a row every 3 days. A red run (GitHub emails the owner) means a project needs restoring.
-# The keys are the publishable ones each site already sends to every browser; 401 still reaches the database.
+# Free Supabase projects pause after 7 days of too little DATABASE activity, and a paused project breaks its live demo.
+# The old 3-day single read was not enough (several projects paused on 2026-11-19/22), so this now runs daily and
+# makes two real Postgres queries per project: a table read and an Auth sign-in lookup (Auth queries auth.users).
+# The keys are the publishable/anon ones each site already sends to every browser. A red run emails the owner.
 name: Supabase keep-alive
 
 on:
   schedule:
-    - cron: "17 3 */3 * *"
+    - cron: "17 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -19,14 +20,26 @@ jobs:
         run: |
           failed=0
           ping() {
-            status=$(curl -s -o /dev/null -m 30 --retry 2 -w "%{http_code}" -H "apikey: $3" "$2" || true)
-            echo "$1: $status"
-            case "$status" in 2*|3*|401|403|404) ;; *) failed=1 ;; esac
+            # $1 name, $2 project base URL, $3 table, $4 key
+            read_status=$(curl -s -o /dev/null -m 30 --retry 2 -w "%{http_code}" \
+              -H "apikey: $4" "$2/rest/v1/$3?select=*&limit=1" || true)
+            auth_status=$(curl -s -o /dev/null -m 30 --retry 2 -w "%{http_code}" -X POST \
+              -H "apikey: $4" -H "Content-Type: application/json" \
+              -d '{"email":"keepalive@example.com","password":"keepalive-not-a-password"}' \
+              "$2/auth/v1/token?grant_type=password" || true)
+            echo "$1: read=$read_status auth=$auth_status"
+            case "$read_status" in 2*|401|403|404) ;; *) failed=1 ;; esac
+            case "$auth_status" in 400|429) ;; *) failed=1 ;; esac
           }
-          ping "C'est Délicieux" "https://xjcmygnnbkdnetkdsfyq.supabase.co/rest/v1/categories?select=*&limit=1" "sb_publishable_l9Y5dPNv0ruklCoP6wsy3g_mc8M45z6"
-          ping "Registrix" "https://ltrgglgkxhejxzdiqkdt.supabase.co/rest/v1/students?select=*&limit=1" "sb_publishable_D21jFwUpQdze5HrcXBnm5g_ptoTyWM-"
-          ping "MediSched" "https://uoqosdefnaycqfqogirj.supabase.co/rest/v1/appointments?select=*&limit=1" "sb_publishable_ER1pY4FcxTKPEim6-FXhKg_CDDd8HaG"
-          ping "ZolTrack" "https://varnpfurkldmdsnkecos.supabase.co/rest/v1/inventory?select=*&limit=1" "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhcm5wZnVya2xkbWRzbmtlY29zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MjkxMTYsImV4cCI6MjA5MjAwNTExNn0.Q55F4ESFzwB_A0ieFFXZA5Uu7rxvFAYoyq8VcZbhUN8"
-          ping "ZolNutrition" "https://vceaixsnmqlwzddnhrqh.supabase.co/rest/v1/foods?select=*&limit=1" "sb_publishable_6-8kjQ7Qth90g-0ztaHLcA_vlTLJ0O6"
-          ping "ResuMatch" "https://resumatch-ph.netlify.app/r/keepalive000"
+          ping "C'est Délicieux" "https://xjcmygnnbkdnetkdsfyq.supabase.co" "categories" "sb_publishable_l9Y5dPNv0ruklCoP6wsy3g_mc8M45z6"
+          ping "Registrix" "https://ltrgglgkxhejxzdiqkdt.supabase.co" "students" "sb_publishable_D21jFwUpQdze5HrcXBnm5g_ptoTyWM-"
+          ping "MediSched" "https://uoqosdefnaycqfqogirj.supabase.co" "appointments" "sb_publishable_ER1pY4FcxTKPEim6-FXhKg_CDDd8HaG"
+          ping "ZolTrack" "https://varnpfurkldmdsnkecos.supabase.co" "inventory" "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhcm5wZnVya2xkbWRzbmtlY29zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MjkxMTYsImV4cCI6MjA5MjAwNTExNn0.Q55F4ESFzwB_A0ieFFXZA5Uu7rxvFAYoyq8VcZbhUN8"
+          ping "ZolNutrition" "https://vceaixsnmqlwzddnhrqh.supabase.co" "foods" "sb_publishable_6-8kjQ7Qth90g-0ztaHLcA_vlTLJ0O6"
+          ping "My Wall" "https://iqbexzgemabkupwfqhva.supabase.co" "posts" "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxYmV4emdlbWFia3Vwd2ZxaHZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUxMTA0NDYsImV4cCI6MjExMDY4NjQ0Nn0.MlydSj1BnD9bxYyXPh2EnWaw5wuZC97sVc7oLBM7AP0"
+          ping "Marketplace" "https://vtkduxroshzyfabwmpjp.supabase.co" "listings" "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ0a2R1eHJvc2h6eWZhYndtcGpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUxMTkxNDcsImV4cCI6MjExMDY5NTE0N30.cIRD-oF2Hddtr7pASWUbRSbztUTSwiQ_CMwAKjRCQhc"
+          # ResuMatch's server route reads its own Supabase project; a 404 page still ran the lookup.
+          rm_status=$(curl -s -o /dev/null -m 60 --retry 2 -w "%{http_code}" "https://resumatch-ph.netlify.app/r/keepalive000" || true)
+          echo "ResuMatch: $rm_status"
+          case "$rm_status" in 2*|3*|404) ;; *) failed=1 ;; esac
           exit $failed
