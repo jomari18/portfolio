@@ -567,3 +567,4 @@ button.award-card:hover{transform:translateX(4px);border-color:var(--line-2)}
 /* Only phones need the gallery clipped; wider screens show the full side cards */
 @media (max-width:1320px){.coverflow{overflow-x:clip}}
 @media (max-width:760px){.footer-name{margin-bottom:84px}}
+.resume-btns{display:flex;flex-wrap:wrap;gap:12px}
